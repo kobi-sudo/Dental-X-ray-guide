@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Veterinary Dental Radiography — Village Vet Team Guide</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --t50:#E1F5EE;--t100:#9FE1CB;--t200:#5DCAA5;--t600:#0F6E56;--t800:#085041;
+  --b50:#E6F1FB;--b100:#B5D4F4;--b800:#0C447C;
+  --a50:#FAEEDA;--a100:#FAC775;--a800:#633806;
+  --g50:#F1EFE8;--g100:#D3D1C7;--g200:#B4B2A9;--g400:#888780;
+  --g600:#5F5E5A;--g800:#444441;--g900:#2C2C2A;
+  --r50:#FCEBEB;--r100:#F7C1C1;--r800:#791F1F;
+  --coral50:#FAECE7;--coral100:#F5C4B3;--coral800:#712B13;
+}
+body{font-family:Georgia,serif;background:#f7f6f2;color:var(--g900);line-height:1.6}
+.header{background:var(--t800);color:white;padding:2rem 2.5rem 0;border-bottom:4px solid var(--t200)}
+.header h1{font-size:1.7rem;font-weight:700;letter-spacing:-.02em;line-height:1.2}
+.sub{font-size:.9rem;opacity:.8;margin-top:.3rem;font-style:italic}
+.hbadge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:6px;padding:.4rem .9rem;font-size:.8rem;font-family:sans-serif;white-space:nowrap}
+.htop{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;padding-bottom:1.5rem}
+.practice{font-family:sans-serif;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;opacity:.7;margin-bottom:.4rem}
+.tab-bar{display:flex;flex-wrap:wrap;border-bottom:2px solid rgba(255,255,255,.2)}
+.tab{padding:.6rem 1.2rem;font-size:.85rem;font-family:sans-serif;font-weight:500;cursor:pointer;border:none;background:transparent;color:rgba(255,255,255,.65);border-bottom:2px solid transparent;margin-bottom:-2px;transition:.15s}
+.tab:hover{color:rgba(255,255,255,.9)}
+.tab.active{color:white;border-bottom-color:var(--t200)}
+.main{max-width:1100px;margin:0 auto;padding:2rem 1.5rem}
+.sec{display:none}.sec.active{display:block}
+.sl{font-family:sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t600);margin-bottom:.5rem}
+.st{font-size:1.4rem;font-weight:700;margin-bottom:.4rem}
+.sd{font-size:.9rem;color:var(--g600);font-family:sans-serif;margin-bottom:2rem}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:2rem}
+.grid3{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem}
+.fm-box{background:white;border:0.5px solid var(--g100);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:2rem}
+.fm-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.fm-grid h4{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--t600);margin-bottom:.75rem;font-family:sans-serif}
+.fm-list{list-style:none;padding:0}
+footer{margin-top:3rem;padding:1.5rem;background:white;border:0.5px solid var(--g100);border-radius:10px;font-family:sans-serif;font-size:.8rem;color:var(--g400);text-align:center}
+.vid-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.25rem;margin-bottom:2rem}
+.vid-cat{font-family:sans-serif;font-size:.78rem;font-weight:700;color:var(--g600);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.75rem;padding-bottom:.4rem;border-bottom:0.5px solid var(--g100)}
+.checklist{background:var(--t800);color:white;border-radius:10px;padding:1.25rem 1.5rem;margin-top:2rem;font-family:sans-serif}
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem}
+.err-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem}
+.err-card{background:white;border:0.5px solid var(--g100);border-radius:10px;overflow:hidden}
+.err-head{padding:.9rem 1.25rem;display:flex;align-items:center;gap:.75rem;border-bottom:0.5px solid var(--g100)}
+.err-icon{width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.err-name{font-weight:700;font-size:.95rem;font-family:sans-serif}
+.err-body{padding:.9rem 1.25rem;font-family:sans-serif;font-size:.82rem}
+.err-row{display:flex;gap:.5rem;margin-bottom:.5rem}
+.err-lbl{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--g400);min-width:52px;padding-top:.1em}
+.fix{color:var(--t600);font-weight:600}
+.tc{background:white;border:0.5px solid var(--g100);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+.tc h3{font-size:1.05rem;font-weight:700;margin-bottom:.3rem}
+.tc-desc{font-size:.85rem;color:var(--g600);font-family:sans-serif;margin-bottom:1rem}
+.tc-rules h4{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--t600);margin-bottom:.6rem;font-family:sans-serif}
+.tc-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-items:start}
+.slob{background:var(--t50);border:0.5px solid var(--t100);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:2rem}
+.slob h3{font-size:1rem;font-weight:700;color:var(--t800);margin-bottom:.5rem;font-family:sans-serif}
+.slob-rule{font-size:1.4rem;font-weight:700;color:var(--t800);letter-spacing:.05em;margin:.75rem 0}
+.tips{list-style:none;padding:0}
+.tips li{position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px}
+.tips li::before{content:"→";position:absolute;left:0;color:var(--t200);font-size:.75rem;top:.1em}
+.warn-box{background:var(--a50);border-left:3px solid var(--a100);padding:.5rem .75rem;border-radius:0 6px 6px 0;font-size:.8rem;font-family:sans-serif;color:var(--a800);margin-top:.6rem}
+.info-strip{background:white;border:0.5px solid var(--g100);border-radius:8px;padding:1rem 1.5rem;margin-bottom:2rem;font-family:sans-serif;font-size:.85rem;color:var(--g600);display:flex;gap:2rem;flex-wrap:wrap}
+.info-strip strong{color:var(--g900)}
+@media(max-width:700px){
+  .grid2,.fm-grid,.tc-row{grid-template-columns:1fr}
+  .header{padding:1.25rem 1.25rem 0}
+  .header h1{font-size:1.3rem}
+}
+@media print{
+  .tab-bar{display:none}
+  .sec{display:block!important;page-break-before:always}
+  .sec:first-of-type{page-break-before:auto}
+  body{background:white}
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="htop">
+    <div>
+      <div class="practice">Village Veterinary Surgery · gardenvillagevets.co.uk</div>
+      <h1>Dental Radiography<br>Team Reference Guide</h1>
+      <div class="sub">Positioning · Angles · Techniques · Errors · Videos · Resources</div>
+    </div>
+    <div class="hbadge">Dogs &amp; Cats</div>
+  </div>
+  <div class="tab-bar">
+    <button class="tab active" onclick="showTab('dog',this)">🐕 Dog Views</button>
+    <button class="tab" onclick="showTab('cat',this)">🐈 Cat Views</button>
+    <button class="tab" onclick="showTab('technique',this)">Techniques</button>
+    <button class="tab" onclick="showTab('errors',this)">Common Errors</button>
+    <button class="tab" onclick="showTab('resources',this)">Videos &amp; Resources</button>
+  </div>
+</div>
+<div class="main">
+<div class="sec active" id="tab-dog"><div class="sl">Canine</div><div class="st">Dog dental views</div><div class="sd">Use bisecting angle for maxillary and rostral mandibular teeth. Parallel technique for caudal mandibular premolars and molars. Full series = 12–16 views.</div><div style="background:white;border:0.5px solid var(--g100);border-radius:10px;overflow:hidden;margin-bottom:1.5rem">
+  <div style="padding:1rem 1.25rem .75rem;border-bottom:0.5px solid var(--g100);display:flex;justify-content:space-between;align-items:flex-start">
+    <div><div style="font-size:1rem;font-weight:700;line-height:1.3">Maxillary incisors · 101–103 / 201–203</div><div style="font-size:.78rem;color:var(--g400);font-family:sans-serif;margin-top:2px">Bisecting angle — one image captures all 6 upper incisors</div></div>
+    <span style="background:var(--t50);color:var(--t800);border:1px solid var(--t100);font-size:.75rem;font-weight:700;font-family:sans-serif;padding:3px 10px;border-radius:5px;white-space:nowrap">~60°</span>
+  </div>
+  <div style="background:#111a11;padding:1rem"><svg viewBox="0 0 660 320" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
+  <rect x="70" y="38" width="520" height="36" rx="8" fill="#2a3d2a" stroke="#5DCAA5" stroke-width="1.5"/>
+  <text x="330" y="61" text-anchor="middle" font-size="13" fill="#9FE1CB" font-family="sans-serif">Maxilla (palate bone)</text>
+  <rect x="182" y="74" width="28" height="19" rx="3" fill="#3d6e4d" stroke="#5DCAA5" stroke-width="1"/>
+  <polygon points="182,93 210,93 204,162 188,162" fill="#2d5e3d" stroke="#5DCAA5" stroke-width="1"/>
+  <rect x="306" y="74" width="30" height="19" rx="3" fill="#5DCAA5" stroke="#9FE1CB" stroke-width="2"/>
+  <polygon points="306,93 336,93 329,175 313,175" fill="#3d7e4d" stroke="#5DCAA5" stroke-width="1.5"/>
+  <rect x="432" y="74" width="28" height="19" rx="3" fill="#3d6e4d" stroke="#5DCAA5" stroke-width="1"/>
+  <polygon points="432,93 460,93 454,162 438,162" fill="#2d5e3d" stroke="#5DCAA5" stroke-width="1"/>
+  <line x1="306" y1="83" x2="210" y2="72" stroke="#9FE1CB" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <circle cx="306" cy="83" r="2.5" fill="#9FE1CB"/>
+  <text x="205" y="70" text-anchor="end" font-size="12" fill="#9FE1CB" font-family="sans-serif" font-weight="600">Crown</text>
+  <line x1="313" y1="138" x2="210" y2="138" stroke="#9FE1CB" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <circle cx="313" cy="138" r="2.5" fill="#9FE1CB"/>
+  <text x="205" y="142" text-anchor="end" font-size="12" fill="#9FE1CB" font-family="sans-serif">Root</text>
+  <line x1="321" y1="175" x2="210" y2="190" stroke="#E24B4A" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <circle cx="321" cy="175" r="3" fill="#E24B4A"/>
+  <text x="205" y="194" text-anchor="end" font-size="12" fill="#E24B4A" font-family="sans-serif" font-weight="600">Apex</text>
+  <line x1="321" y1="38" x2="321" y2="185" stroke="#5DCAA5" stroke-width="1" stroke-dasharray="5,4" opacity="0.5"/>
+  <text x="336" y="36" font-size="10" fill="#5DCAA5" font-family="sans-serif">Tooth axis</text>
+  <rect x="128" y="200" width="404" height="13" rx="5" fill="#1a3060" stroke="#185FA5" stroke-width="2"/>
+  <text x="330" y="210" text-anchor="middle" font-size="11" fill="#B5D4F4" font-family="sans-serif" font-weight="600">X-RAY SENSOR — placed palatally (size 2, horizontal)</text>
+  <polygon points="128,200 160,200 128,226" fill="#EF9F27" stroke="#854F0B" stroke-width="1" opacity="0.9"/>
+  <text x="96" y="236" font-size="10" fill="#EF9F27" font-family="sans-serif" text-anchor="middle">Foam wedge</text>
+  <line x1="200" y1="126" x2="480" y2="200" stroke="#EF9F27" stroke-width="1.5" stroke-dasharray="8,5"/>
+  <text x="484" y="197" font-size="11" fill="#EF9F27" font-family="sans-serif">Bisecting line</text>
+  <line x1="321" y1="8" x2="321" y2="70" stroke="#E24B4A" stroke-width="3"/>
+  <polygon points="321,74 314,60 328,60" fill="#E24B4A"/>
+  <rect x="232" y="2" width="178" height="21" rx="4" fill="#1a0a0a"/>
+  <text x="321" y="16" text-anchor="middle" font-size="12" fill="#E24B4A" font-family="sans-serif" font-weight="600">X-ray beam · ~60°</text>
+  <path d="M321 8 A55 55 0 0 1 355 26" fill="none" stroke="#E24B4A" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="360" y="30" font-size="11" fill="#E24B4A" font-family="sans-serif">60°</text>
+  <rect x="70" y="248" width="520" height="58" rx="7" fill="#0d1f0d" stroke="#3d6e4d" stroke-width="0.5"/>
+  <text x="90" y="268" font-size="12" fill="#9FE1CB" font-family="sans-serif" font-weight="600">Key points:</text>
+  <text x="90" y="284" font-size="12" fill="#9FE1CB" font-family="sans-serif">✓  One image captures all 6 upper incisors (101–103 + 201–203)</text>
+  <text x="90" y="299" font-size="12" fill="#9FE1CB" font-family="sans-serif">✓  Roots look stubby? Beam too steep → reduce angle. Roots too long? → increase angle</text>
+</svg></div>
+  <div style="padding:1rem 1.25rem">
+    <ul style="list-style:none;padding:0;margin:0"><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>Patient sternal; palate parallel to table; foam support under chin</li><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>Sensor placed horizontally and palatally behind incisors (size 2)</li><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>Foam wedge holds sensor at the correct angle</li><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>Beam aimed at ~60° from vertical, over the bridge of the nose</li><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>One image typically captures 101–103 and 201–203</li><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>Roots look stubby → beam too steep; reduce angle. Roots too long → increase angle</li></ul>
+    <div style="background:var(--a50);border-left:3px solid var(--a100);padding:.5rem .75rem;border-radius:0 6px 6px 0;font-size:.8rem;font-family:sans-serif;color:var(--a800);margin-top:.6rem">⚠ Aim at the ROOT apex, not at the crown — roots are roughly 2× crown length</div>
+  </div>
+</div><div style="background:white;border:0.5px solid var(--g100);border-radius:10px;overflow:hidden;margin-bottom:1.5rem">
+  <div style="padding:1rem 1.25rem .75rem;border-bottom:0.5px solid var(--g100);display:flex;justify-content:space-between;align-items:flex-start">
+    <div><div style="font-size:1rem;font-weight:700;line-height:1.3">Maxillary canine · 104 / 204</div><div style="font-size:.78rem;color:var(--g400);font-family:sans-serif;margin-top:2px">Bisecting angle + lateral oblique — aimed mesially to avoid PM3</div></div>
+    <span style="background:var(--a50);color:var(--a800);border:1px solid var(--a100);font-size:.75rem;font-weight:700;font-family:sans-serif;padding:3px 10px;border-radius:5px;white-space:nowrap">~60° oblique</span>
+  </div>
+  <div style="background:#111a11;padding:1rem"><svg viewBox="0 0 660 330" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
+  <rect x="80" y="44" width="400" height="32" rx="8" fill="#2a3d2a" stroke="#5DCAA5" stroke-width="1.5"/>
+  <text x="280" y="65" text-anchor="middle" font-size="13" fill="#9FE1CB" font-family="sans-serif">Maxilla — lateral view</text>
+  <rect x="298" y="76" width="24" height="17" rx="3" fill="#1d2d1d" stroke="#2d4d2d" stroke-width="1"/>
+  <polygon points="298,93 322,93 317,152 303,152" fill="#182818" stroke="#2d4d2d" stroke-width="1"/>
+  <text x="310" y="164" text-anchor="middle" font-size="10" fill="#3d5d3d" font-family="sans-serif">PM3</text>
+  <rect x="158" y="76" width="30" height="21" rx="3" fill="#5DCAA5" stroke="#9FE1CB" stroke-width="2"/>
+  <polygon points="158,97 188,97 180,210 166,210" fill="#3d7e4d" stroke="#5DCAA5" stroke-width="1.5"/>
+  <circle cx="173" cy="212" r="4" fill="#E24B4A"/>
+  <line x1="158" y1="87" x2="90" y2="76" stroke="#9FE1CB" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <circle cx="158" cy="87" r="2.5" fill="#9FE1CB"/>
+  <text x="85" y="74" text-anchor="end" font-size="12" fill="#9FE1CB" font-family="sans-serif" font-weight="600">Crown (104)</text>
+  <line x1="164" y1="158" x2="90" y2="158" stroke="#9FE1CB" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <circle cx="164" cy="158" r="2.5" fill="#9FE1CB"/>
+  <text x="85" y="162" text-anchor="end" font-size="12" fill="#9FE1CB" font-family="sans-serif">Root (long)</text>
+  <line x1="173" y1="212" x2="90" y2="224" stroke="#E24B4A" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <text x="85" y="228" text-anchor="end" font-size="12" fill="#E24B4A" font-family="sans-serif" font-weight="600">Apex</text>
+  <rect x="190" y="228" width="280" height="12" rx="4" fill="#1a3060" stroke="#185FA5" stroke-width="2"/>
+  <text x="330" y="237" text-anchor="middle" font-size="10" fill="#B5D4F4" font-family="sans-serif" font-weight="600">SENSOR — palatally alongside canine (size 4)</text>
+  <polygon points="190,228 220,228 190,252" fill="#EF9F27" stroke="#854F0B" stroke-width="1" opacity="0.9"/>
+  <text x="170" y="264" text-anchor="middle" font-size="10" fill="#EF9F27" font-family="sans-serif">Foam wedge</text>
+  <line x1="148" y1="148" x2="430" y2="230" stroke="#EF9F27" stroke-width="1.5" stroke-dasharray="8,5"/>
+  <text x="434" y="227" font-size="11" fill="#EF9F27" font-family="sans-serif">Bisecting line</text>
+  <line x1="72" y1="16" x2="158" y2="70" stroke="#E24B4A" stroke-width="3"/>
+  <polygon points="162,73 148,68 154,57" fill="#E24B4A"/>
+  <rect x="14" y="8" width="162" height="36" rx="4" fill="#1a0a0a"/>
+  <text x="95" y="24" text-anchor="middle" font-size="12" fill="#E24B4A" font-family="sans-serif" font-weight="600">X-ray beam ~60°</text>
+  <text x="95" y="38" text-anchor="middle" font-size="11" fill="#E24B4A" font-family="sans-serif">aimed MESIALLY →</text>
+  <text x="490" y="112" font-size="11" fill="#888" font-family="sans-serif">Beam aimed mesially</text>
+  <text x="490" y="126" font-size="11" fill="#888" font-family="sans-serif">→ avoids PM3</text>
+  <line x1="488" y1="120" x2="326" y2="128" stroke="#888" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <rect x="80" y="275" width="520" height="40" rx="6" fill="#1a1000" stroke="#FAC775" stroke-width="1"/>
+  <text x="100" y="293" font-size="12" fill="#FAC775" font-family="sans-serif" font-weight="600">⚠  Apex must be visible · Full root on image before extraction · Increase exposure 10–15%</text>
+  <text x="100" y="308" font-size="12" fill="#FAC775" font-family="sans-serif">    Head tilted toward side of interest · Largest sensor available (size 4 ideal)</text>
+</svg></div>
+  <div style="padding:1rem 1.25rem">
+    <ul style="list-style:none;padding:0;margin:0"><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>Sternal; head tilted toward the side being imaged</li><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>Largest sensor palatally alongside canine (size 4 ideal, size 2 minimum)</li><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>Foam wedge essential — very limited palatal space</li><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>Beam oblique at ~60°, aimed MESIALLY so long root does not overlap PM3</li><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>Increase exposure 10–15% — most underexposed view in the series</li><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>Periapical lucency at apex = endodontic disease until proven otherwise</li></ul>
+    <div style="background:var(--a50);border-left:3px solid var(--a100);padding:.5rem .75rem;border-radius:0 6px 6px 0;font-size:.8rem;font-family:sans-serif;color:var(--a800);margin-top:.6rem">⚠ Full root length must be visible on image — apex must show before any extraction</div>
+  </div>
+</div><div style="background:white;border:0.5px solid var(--g100);border-radius:10px;overflow:hidden;margin-bottom:1.5rem">
+  <div style="padding:1rem 1.25rem .75rem;border-bottom:0.5px solid var(--g100);display:flex;justify-content:space-between;align-items:flex-start">
+    <div><div style="font-size:1rem;font-weight:700;line-height:1.3">Maxillary 4th PM (carnassial) · 108 / 208</div><div style="font-size:.78rem;color:var(--g400);font-family:sans-serif;margin-top:2px">3 roots: mesio-buccal (MB), disto-buccal (DB), palatal (P) — use SLOB to separate</div></div>
+    <span style="background:var(--a50);color:var(--a800);border:1px solid var(--a100);font-size:.75rem;font-weight:700;font-family:sans-serif;padding:3px 10px;border-radius:5px;white-space:nowrap">~45° + SLOB</span>
+  </div>
+  <div style="background:#111a11;padding:1rem"><svg viewBox="0 0 660 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
+  <rect x="180" y="38" width="300" height="30" rx="8" fill="#2a3d2a" stroke="#5DCAA5" stroke-width="1.5"/>
+  <text x="330" y="57" text-anchor="middle" font-size="12" fill="#9FE1CB" font-family="sans-serif">Maxilla — top-down cross-section view</text>
+  <circle cx="252" cy="100" r="26" fill="#2d5e3d" stroke="#5DCAA5" stroke-width="2"/>
+  <text x="252" y="96" text-anchor="middle" font-size="12" fill="#E1F5EE" font-family="sans-serif" font-weight="600">MB</text>
+  <text x="252" y="111" text-anchor="middle" font-size="10" fill="#9FE1CB" font-family="sans-serif">root</text>
+  <circle cx="330" cy="100" r="26" fill="#2d5e3d" stroke="#5DCAA5" stroke-width="2"/>
+  <text x="330" y="96" text-anchor="middle" font-size="12" fill="#E1F5EE" font-family="sans-serif" font-weight="600">DB</text>
+  <text x="330" y="111" text-anchor="middle" font-size="10" fill="#9FE1CB" font-family="sans-serif">root</text>
+  <circle cx="408" cy="100" r="26" fill="#1d4e3d" stroke="#9FE1CB" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="408" y="96" text-anchor="middle" font-size="12" fill="#E1F5EE" font-family="sans-serif" font-weight="600">P</text>
+  <text x="408" y="111" text-anchor="middle" font-size="10" fill="#9FE1CB" font-family="sans-serif">root</text>
+  <text x="186" y="98" text-anchor="end" font-size="11" fill="#666" font-family="sans-serif">← Buccal</text>
+  <text x="444" y="98" font-size="11" fill="#666" font-family="sans-serif">Lingual →</text>
+  <line x1="330" y1="8" x2="330" y2="68" stroke="#E24B4A" stroke-width="2.5"/>
+  <polygon points="330,72 324,58 336,58" fill="#E24B4A"/>
+  <text x="380" y="22" font-size="11" fill="#E24B4A" font-family="sans-serif">Standard beam</text>
+  <line x1="210" y1="8" x2="248" y2="68" stroke="#E24B4A" stroke-width="2" stroke-dasharray="5,3" opacity="0.7"/>
+  <polygon points="250,72 240,62 249,55" fill="#E24B4A" opacity="0.7"/>
+  <text x="150" y="22" text-anchor="middle" font-size="11" fill="#E24B4A" font-family="sans-serif">SLOB shift</text>
+  <text x="150" y="36" text-anchor="middle" font-size="10" fill="#E24B4A" font-family="sans-serif">(tube moves mesial)</text>
+  <line x1="80" y1="162" x2="580" y2="162" stroke="#333" stroke-width="0.8" stroke-dasharray="4,4"/>
+  <text x="330" y="158" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">Result on radiograph after SLOB shift:</text>
+  <circle cx="204" cy="222" r="26" fill="#2d5e3d" stroke="#5DCAA5" stroke-width="2"/>
+  <text x="204" y="218" text-anchor="middle" font-size="12" fill="#E1F5EE" font-family="sans-serif" font-weight="600">MB</text>
+  <text x="204" y="233" text-anchor="middle" font-size="10" fill="#9FE1CB" font-family="sans-serif">root</text>
+  <text x="204" y="257" text-anchor="middle" font-size="11" fill="#EF9F27" font-family="sans-serif">→ moved mesial</text>
+  <text x="204" y="270" text-anchor="middle" font-size="10" fill="#888" font-family="sans-serif">(same as tube)</text>
+  <circle cx="330" cy="222" r="26" fill="#2d5e3d" stroke="#5DCAA5" stroke-width="2"/>
+  <text x="330" y="218" text-anchor="middle" font-size="12" fill="#E1F5EE" font-family="sans-serif" font-weight="600">DB</text>
+  <text x="330" y="233" text-anchor="middle" font-size="10" fill="#9FE1CB" font-family="sans-serif">root</text>
+  <text x="330" y="257" text-anchor="middle" font-size="11" fill="#888" font-family="sans-serif">stays same</text>
+  <circle cx="460" cy="222" r="26" fill="#1d4e3d" stroke="#9FE1CB" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="460" y="218" text-anchor="middle" font-size="12" fill="#E1F5EE" font-family="sans-serif" font-weight="600">P</text>
+  <text x="460" y="233" text-anchor="middle" font-size="10" fill="#9FE1CB" font-family="sans-serif">root</text>
+  <text x="460" y="257" text-anchor="middle" font-size="11" fill="#EF9F27" font-family="sans-serif">← moved distal</text>
+  <text x="460" y="270" text-anchor="middle" font-size="10" fill="#888" font-family="sans-serif">(opposite to tube)</text>
+  <rect x="80" y="294" width="500" height="52" rx="7" fill="#0d1f0d" stroke="#3d6e4d" stroke-width="0.5"/>
+  <text x="100" y="314" font-size="13" fill="#9FE1CB" font-family="sans-serif" font-weight="600">✓  Roots are now separated on the image</text>
+  <text x="100" y="330" font-size="12" fill="#9FE1CB" font-family="sans-serif">Compare standard view + SLOB view side by side to identify each root individually</text>
+  <text x="100" y="344" font-size="12" fill="#9FE1CB" font-family="sans-serif">Shift tube no more than 15–20° mesially. Used mainly for 108/208 dog and 109/209 cat</text>
+</svg></div>
+  <div style="padding:1rem 1.25rem">
+    <ul style="list-style:none;padding:0;margin:0"><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>Sternal; head tilted toward side being imaged</li><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>Sensor palatally at ~45°; foam wedge to hold</li><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>Take standard view first — MB and palatal roots often superimpose</li><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>Shift tube HEAD mesially 15–20° and retake (SLOB rule)</li><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>Compare both images side-by-side — roots now separated and identifiable</li><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>Most common tooth for endodontic disease and retained roots post-extraction</li></ul>
+    <div style="background:var(--a50);border-left:3px solid var(--a100);padding:.5rem .75rem;border-radius:0 6px 6px 0;font-size:.8rem;font-family:sans-serif;color:var(--a800);margin-top:.6rem">⚠ Always image AFTER extraction — confirm all 3 roots fully removed</div>
+  </div>
+</div><div style="background:white;border:0.5px solid var(--g100);border-radius:10px;overflow:hidden;margin-bottom:1.5rem">
+  <div style="padding:1rem 1.25rem .75rem;border-bottom:0.5px solid var(--g100);display:flex;justify-content:space-between;align-items:flex-start">
+    <div><div style="font-size:1rem;font-weight:700;line-height:1.3">Mandibular PM &amp; molars · 305–311 / 405–411</div><div style="font-size:.78rem;color:var(--g400);font-family:sans-serif;margin-top:2px">Parallel technique — no angle calculation needed; most accurate</div></div>
+    <span style="background:var(--b50);color:var(--b800);border:1px solid var(--b100);font-size:.75rem;font-weight:700;font-family:sans-serif;padding:3px 10px;border-radius:5px;white-space:nowrap">Parallel</span>
+  </div>
+  <div style="background:#111a11;padding:1rem"><svg viewBox="0 0 660 330" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
+  <line x1="180" y1="8" x2="180" y2="62" stroke="#E24B4A" stroke-width="2.5"/>
+  <polygon points="180,67 174,54 186,54" fill="#E24B4A"/>
+  <line x1="258" y1="8" x2="258" y2="62" stroke="#E24B4A" stroke-width="2.5"/>
+  <polygon points="258,67 252,54 264,54" fill="#E24B4A"/>
+  <line x1="336" y1="8" x2="336" y2="62" stroke="#E24B4A" stroke-width="2.5"/>
+  <polygon points="336,67 330,54 342,54" fill="#E24B4A"/>
+  <line x1="414" y1="8" x2="414" y2="62" stroke="#E24B4A" stroke-width="2.5"/>
+  <polygon points="414,67 408,54 420,54" fill="#E24B4A"/>
+  <rect x="80" y="2" width="500" height="20" rx="4" fill="#1a0a0a"/>
+  <text x="330" y="15" text-anchor="middle" font-size="12" fill="#E24B4A" font-family="sans-serif" font-weight="600">X-ray beam — perfectly vertical (90°) · no angle calculation needed</text>
+  <rect x="162" y="67" width="36" height="19" rx="3" fill="#5DCAA5" stroke="#9FE1CB" stroke-width="1.5"/>
+  <polygon points="162,86 198,86 192,162 168,162" fill="#3d7e4d" stroke="#5DCAA5" stroke-width="1"/>
+  <text x="180" y="177" text-anchor="middle" font-size="11" fill="#9FE1CB" font-family="sans-serif">PM2</text>
+  <rect x="238" y="67" width="38" height="19" rx="3" fill="#5DCAA5" stroke="#9FE1CB" stroke-width="1.5"/>
+  <polygon points="238,86 276,86 270,162 244,162" fill="#3d7e4d" stroke="#5DCAA5" stroke-width="1"/>
+  <text x="257" y="177" text-anchor="middle" font-size="11" fill="#9FE1CB" font-family="sans-serif">PM3</text>
+  <rect x="316" y="67" width="40" height="19" rx="3" fill="#5DCAA5" stroke="#9FE1CB" stroke-width="1.5"/>
+  <polygon points="316,86 356,86 349,162 323,162" fill="#3d7e4d" stroke="#5DCAA5" stroke-width="1"/>
+  <text x="336" y="177" text-anchor="middle" font-size="11" fill="#9FE1CB" font-family="sans-serif">PM4</text>
+  <rect x="394" y="67" width="42" height="19" rx="3" fill="#5DCAA5" stroke="#9FE1CB" stroke-width="1.5"/>
+  <polygon points="394,86 436,86 428,162 400,162" fill="#3d7e4d" stroke="#5DCAA5" stroke-width="1"/>
+  <text x="415" y="177" text-anchor="middle" font-size="11" fill="#9FE1CB" font-family="sans-serif">M1</text>
+  <line x1="162" y1="77" x2="110" y2="66" stroke="#9FE1CB" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <text x="106" y="64" text-anchor="end" font-size="12" fill="#9FE1CB" font-family="sans-serif" font-weight="600">Crown</text>
+  <line x1="168" y1="128" x2="110" y2="128" stroke="#9FE1CB" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <text x="106" y="132" text-anchor="end" font-size="12" fill="#9FE1CB" font-family="sans-serif">Root</text>
+  <line x1="170" y1="162" x2="110" y2="175" stroke="#E24B4A" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <text x="106" y="179" text-anchor="end" font-size="12" fill="#E24B4A" font-family="sans-serif" font-weight="600">Apex</text>
+  <rect x="112" y="190" width="436" height="34" rx="8" fill="#2a3d2a" stroke="#5DCAA5" stroke-width="1.5"/>
+  <text x="330" y="211" text-anchor="middle" font-size="13" fill="#9FE1CB" font-family="sans-serif">Mandible (jaw bone)</text>
+  <rect x="112" y="232" width="436" height="13" rx="5" fill="#1a3060" stroke="#185FA5" stroke-width="2"/>
+  <text x="330" y="242" text-anchor="middle" font-size="11" fill="#B5D4F4" font-family="sans-serif" font-weight="600">SENSOR — lingual to teeth, PARALLEL to root axis</text>
+  <rect x="342" y="67" width="11" height="11" fill="none" stroke="#EF9F27" stroke-width="1.5"/>
+  <text x="358" y="76" font-size="11" fill="#EF9F27" font-family="sans-serif">90°</text>
+  <rect x="342" y="232" width="11" height="11" fill="none" stroke="#EF9F27" stroke-width="1.5"/>
+  <polygon points="548,232 578,232 548,256" fill="#EF9F27" stroke="#854F0B" stroke-width="1" opacity="0.9"/>
+  <text x="584" y="250" font-size="11" fill="#EF9F27" font-family="sans-serif">Foam wedge</text>
+  <rect x="80" y="265" width="520" height="52" rx="7" fill="#0d1f0d" stroke="#3d6e4d" stroke-width="0.5"/>
+  <text x="100" y="284" font-size="12" fill="#9FE1CB" font-family="sans-serif" font-weight="600">Why parallel works here:</text>
+  <text x="100" y="300" font-size="12" fill="#9FE1CB" font-family="sans-serif">Long dog mandible = space for true parallel. NOT possible for maxillary or rostral mandibular teeth.</text>
+  <text x="100" y="314" font-size="12" fill="#9FE1CB" font-family="sans-serif">Patient: lateral recumbency, targeted side DOWN. Usually 2 images per side (PM2–M3).</text>
+</svg></div>
+  <div style="padding:1rem 1.25rem">
+    <ul style="list-style:none;padding:0;margin:0"><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>Lateral recumbency; targeted side facing DOWN</li><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>Sensor placed lingual to teeth, as parallel to roots as possible</li><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>Foam wedge holds sensor in position during exposure</li><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>Beam perpendicular (90°) to both tooth and sensor — straight down</li><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>Usually 2 images per side to cover PM2–M3 in large breeds</li><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>Don't substitute bisecting angle here — parallel is far more accurate</li></ul>
+    
+  </div>
+</div><div class="fm-box"><div style="font-size:1rem;font-weight:700;margin-bottom:1rem;font-family:sans-serif">Full mouth series — dog (12–16 views)</div><div class="fm-grid"><div><h4>Right quadrants</h4><ul class="fm-list"><li style="display:flex;align-items:baseline;gap:.6rem;font-size:.83rem;font-family:sans-serif;padding:.3rem 0;border-bottom:0.5px solid var(--g50)"><span style="background:var(--t800);color:white;font-size:.65rem;font-weight:700;min-width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">1</span>Max. incisors 101–103<span style="margin-left:auto;background:var(--g50);color:var(--g600);font-size:.72rem;padding:1px 7px;border-radius:4px;white-space:nowrap;font-weight:600">~60°</span></li><li style="display:flex;align-items:baseline;gap:.6rem;font-size:.83rem;font-family:sans-serif;padding:.3rem 0;border-bottom:0.5px solid var(--g50)"><span style="background:var(--t800);color:white;font-size:.65rem;font-weight:700;min-width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">2</span>Max. canine 104<span style="margin-left:auto;background:var(--g50);color:var(--g600);font-size:.72rem;padding:1px 7px;border-radius:4px;white-space:nowrap;font-weight:600">~60° oblique</span></li><li style="display:flex;align-items:baseline;gap:.6rem;font-size:.83rem;font-family:sans-serif;padding:.3rem 0;border-bottom:0.5px solid var(--g50)"><span style="background:var(--t800);color:white;font-size:.65rem;font-weight:700;min-width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">3</span>Max. PM 105–107<span style="margin-left:auto;background:var(--g50);color:var(--g600);font-size:.72rem;padding:1px 7px;border-radius:4px;white-space:nowrap;font-weight:600">~45°</span></li><li style="display:flex;align-items:baseline;gap:.6rem;font-size:.83rem;font-family:sans-serif;padding:.3rem 0;border-bottom:0.5px solid var(--g50)"><span style="background:var(--t800);color:white;font-size:.65rem;font-weight:700;min-width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">4</span>Max. 4th PM 108<span style="margin-left:auto;background:var(--g50);color:var(--g600);font-size:.72rem;padding:1px 7px;border-radius:4px;white-space:nowrap;font-weight:600">~45° + SLOB</span></li><li style="display:flex;align-items:baseline;gap:.6rem;font-size:.83rem;font-family:sans-serif;padding:.3rem 0;border-bottom:0.5px solid var(--g50)"><span style="background:var(--t800);color:white;font-size:.65rem;font-weight:700;min-width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">5</span>Max. molar 109<span style="margin-left:auto;background:var(--g50);color:var(--g600);font-size:.72rem;padding:1px 7px;border-radius:4px;white-space:nowrap;font-weight:600">~45°</span></li><li style="display:flex;align-items:baseline;gap:.6rem;font-size:.83rem;font-family:sans-serif;padding:.3rem 0;border-bottom:0.5px solid var(--g50)"><span style="background:var(--t800);color:white;font-size:.65rem;font-weight:700;min-width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">6</span>Mand. canine 404<span style="margin-left:auto;background:var(--g50);color:var(--g600);font-size:.72rem;padding:1px 7px;border-radius:4px;white-space:nowrap;font-weight:600">~25–30°</span></li><li style="display:flex;align-items:baseline;gap:.6rem;font-size:.83rem;font-family:sans-serif;padding:.3rem 0;border-bottom:0.5px solid var(--g50)"><span style="background:var(--t800);color:white;font-size:.65rem;font-weight:700;min-width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">7</span>Mand. PM/M 405–411<span style="margin-left:auto;background:var(--g50);color:var(--g600);font-size:.72rem;padding:1px 7px;border-radius:4px;white-space:nowrap;font-weight:600">Parallel</span></li></ul></div><div><h4>Left + shared</h4><ul class="fm-list"><li style="display:flex;align-items:baseline;gap:.6rem;font-size:.83rem;font-family:sans-serif;padding:.3rem 0;border-bottom:0.5px solid var(--g50)"><span style="background:var(--t800);color:white;font-size:.65rem;font-weight:700;min-width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">8</span>Mand. incisors (shared)<span style="margin-left:auto;background:var(--g50);color:var(--g600);font-size:.72rem;padding:1px 7px;border-radius:4px;white-space:nowrap;font-weight:600">~20°</span></li><li style="display:flex;align-items:baseline;gap:.6rem;font-size:.83rem;font-family:sans-serif;padding:.3rem 0;border-bottom:0.5px solid var(--g50)"><span style="background:var(--t800);color:white;font-size:.65rem;font-weight:700;min-width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">9</span>Max. canine 204<span style="margin-left:auto;background:var(--g50);color:var(--g600);font-size:.72rem;padding:1px 7px;border-radius:4px;white-space:nowrap;font-weight:600">~60° oblique</span></li><li style="display:flex;align-items:baseline;gap:.6rem;font-size:.83rem;font-family:sans-serif;padding:.3rem 0;border-bottom:0.5px solid var(--g50)"><span style="background:var(--t800);color:white;font-size:.65rem;font-weight:700;min-width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">10</span>Max. PM 205–207<span style="margin-left:auto;background:var(--g50);color:var(--g600);font-size:.72rem;padding:1px 7px;border-radius:4px;white-space:nowrap;font-weight:600">~45°</span></li><li style="display:flex;align-items:baseline;gap:.6rem;font-size:.83rem;font-family:sans-serif;padding:.3rem 0;border-bottom:0.5px solid var(--g50)"><span style="background:var(--t800);color:white;font-size:.65rem;font-weight:700;min-width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">11</span>Max. 4th PM 208<span style="margin-left:auto;background:var(--g50);color:var(--g600);font-size:.72rem;padding:1px 7px;border-radius:4px;white-space:nowrap;font-weight:600">~45° + SLOB</span></li><li style="display:flex;align-items:baseline;gap:.6rem;font-size:.83rem;font-family:sans-serif;padding:.3rem 0;border-bottom:0.5px solid var(--g50)"><span style="background:var(--t800);color:white;font-size:.65rem;font-weight:700;min-width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">12</span>Max. molar 209<span style="margin-left:auto;background:var(--g50);color:var(--g600);font-size:.72rem;padding:1px 7px;border-radius:4px;white-space:nowrap;font-weight:600">~45°</span></li><li style="display:flex;align-items:baseline;gap:.6rem;font-size:.83rem;font-family:sans-serif;padding:.3rem 0;border-bottom:0.5px solid var(--g50)"><span style="background:var(--t800);color:white;font-size:.65rem;font-weight:700;min-width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">13</span>Mand. canine 304<span style="margin-left:auto;background:var(--g50);color:var(--g600);font-size:.72rem;padding:1px 7px;border-radius:4px;white-space:nowrap;font-weight:600">~25–30°</span></li><li style="display:flex;align-items:baseline;gap:.6rem;font-size:.83rem;font-family:sans-serif;padding:.3rem 0;border-bottom:0.5px solid var(--g50)"><span style="background:var(--t800);color:white;font-size:.65rem;font-weight:700;min-width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">14</span>Mand. PM/M 305–311<span style="margin-left:auto;background:var(--g50);color:var(--g600);font-size:.72rem;padding:1px 7px;border-radius:4px;white-space:nowrap;font-weight:600">Parallel</span></li></ul></div></div></div></div><div class="sec" id="tab-cat"><div class="sl">Feline</div><div class="st">Cat dental views</div><div class="sd">Size 0 or 1 sensor throughout. Short jaws and flat palate make positioning harder. Expect 10–12 views. FORLs (feline odontoclastic resorptive lesions) are very common — always scrutinise the crown/root junction carefully.</div><div class="info-strip"><span><strong>Sternal recumbency</strong> → maxillary views</span><span><strong>Dorsal recumbency</strong> → mandibular views</span><span><strong>Size 0 sensor</strong> throughout</span><span><strong>Always image before extracting</strong> — FORL type changes technique</span></div><div style="background:white;border:0.5px solid var(--g100);border-radius:10px;overflow:hidden;margin-bottom:1.5rem">
+  <div style="padding:1rem 1.25rem .75rem;border-bottom:0.5px solid var(--g100);display:flex;justify-content:space-between;align-items:flex-start">
+    <div><div style="font-size:1rem;font-weight:700;line-height:1.3">Maxillary canine · 104 / 204 — the trickiest feline view</div><div style="font-size:.78rem;color:var(--g400);font-family:sans-serif;margin-top:2px">Short palate · size 0 sensor · FORLs extremely common</div></div>
+    <span style="background:var(--a50);color:var(--a800);border:1px solid var(--a100);font-size:.75rem;font-weight:700;font-family:sans-serif;padding:3px 10px;border-radius:5px;white-space:nowrap">~45° oblique</span>
+  </div>
+  <div style="background:#111a11;padding:1rem"><svg viewBox="0 0 660 330" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
+  <rect x="152" y="44" width="280" height="30" rx="8" fill="#2a3d2a" stroke="#5DCAA5" stroke-width="1.5"/>
+  <text x="292" y="63" text-anchor="middle" font-size="12" fill="#9FE1CB" font-family="sans-serif">Feline maxilla — SHORT jaw, very limited space</text>
+  <rect x="302" y="74" width="22" height="16" rx="3" fill="#1d2d1d" stroke="#2d4d2d" stroke-width="1"/>
+  <polygon points="302,90 324,90 319,142 307,142" fill="#182818" stroke="#2d4d2d" stroke-width="1"/>
+  <text x="313" y="154" text-anchor="middle" font-size="10" fill="#3d5d3d" font-family="sans-serif">PM3</text>
+  <rect x="208" y="74" width="26" height="19" rx="3" fill="#5DCAA5" stroke="#9FE1CB" stroke-width="2"/>
+  <polygon points="208,93 234,93 226,198" fill="#3d7e4d" stroke="#5DCAA5" stroke-width="1.5"/>
+  <line x1="226" y1="198" x2="222" y2="200" stroke="#5DCAA5" stroke-width="1"/>
+  <circle cx="221" cy="200" r="4" fill="#E24B4A"/>
+  <line x1="208" y1="84" x2="136" y2="74" stroke="#9FE1CB" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <text x="132" y="72" text-anchor="end" font-size="12" fill="#9FE1CB" font-family="sans-serif" font-weight="600">Crown (104)</text>
+  <line x1="214" y1="148" x2="136" y2="148" stroke="#9FE1CB" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <text x="132" y="152" text-anchor="end" font-size="12" fill="#9FE1CB" font-family="sans-serif">Root</text>
+  <line x1="221" y1="200" x2="136" y2="214" stroke="#E24B4A" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <text x="132" y="218" text-anchor="end" font-size="12" fill="#E24B4A" font-family="sans-serif" font-weight="600">Apex</text>
+  <rect x="234" y="218" width="196" height="10" rx="4" fill="#1a3060" stroke="#185FA5" stroke-width="2"/>
+  <text x="332" y="226" text-anchor="middle" font-size="10" fill="#B5D4F4" font-family="sans-serif" font-weight="600">SIZE 0 SENSOR (dental putty holds)</text>
+  <ellipse cx="238" cy="223" rx="14" ry="9" fill="#EF9F27" opacity="0.8"/>
+  <text x="216" y="244" font-size="10" fill="#EF9F27" font-family="sans-serif" text-anchor="middle">Dental putty</text>
+  <line x1="140" y1="148" x2="392" y2="220" stroke="#EF9F27" stroke-width="1.5" stroke-dasharray="7,5"/>
+  <text x="396" y="217" font-size="11" fill="#EF9F27" font-family="sans-serif">Bisecting line</text>
+  <line x1="102" y1="18" x2="206" y2="68" stroke="#E24B4A" stroke-width="3"/>
+  <polygon points="209,72 197,64 204,54" fill="#E24B4A"/>
+  <rect x="14" y="10" width="158" height="36" rx="4" fill="#1a0a0a"/>
+  <text x="93" y="25" text-anchor="middle" font-size="12" fill="#E24B4A" font-family="sans-serif" font-weight="600">Beam ~45° oblique</text>
+  <text x="93" y="40" text-anchor="middle" font-size="11" fill="#E24B4A" font-family="sans-serif">aimed MESIALLY →</text>
+  <text x="490" y="102" font-size="11" fill="#888" font-family="sans-serif">← avoids PM3</text>
+  <line x1="486" y1="108" x2="328" y2="122" stroke="#888" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <rect x="80" y="262" width="500" height="54" rx="6" fill="#1a0a0a" stroke="#FAC775" stroke-width="1"/>
+  <text x="100" y="282" font-size="12" fill="#FAC775" font-family="sans-serif" font-weight="600">⚠  FORLs very common — image BEFORE extracting — type changes technique</text>
+  <text x="100" y="298" font-size="12" fill="#FAC775" font-family="sans-serif">    Size 0 sensor only · May need 2 attempts · Full root tip must be on image</text>
+  <text x="100" y="312" font-size="12" fill="#888" font-family="sans-serif">    vs dog: shallower angle (~45° not 60°) · size 0 not size 2 · dental putty not foam wedge</text>
+</svg></div>
+  <div style="padding:1rem 1.25rem">
+    <ul style="list-style:none;padding:0;margin:0"><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>Sternal; head tilted toward side being imaged</li><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>Size 0 sensor placed as far palatally as possible</li><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>Dental putty or finger cot holds sensor — no room to hold manually</li><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>~45° oblique, aimed MESIALLY to avoid PM3 (shallower than dog)</li><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>FORLs type 1 and 2 common at cervical line — type changes extraction technique</li><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>May need 2 attempts — partial root images are NOT acceptable</li></ul>
+    <div style="background:var(--a50);border-left:3px solid var(--a100);padding:.5rem .75rem;border-radius:0 6px 6px 0;font-size:.8rem;font-family:sans-serif;color:var(--a800);margin-top:.6rem">⚠ Full root tip must be visible before ANY extraction — retake if not</div>
+  </div>
+</div><div style="background:white;border:0.5px solid var(--g100);border-radius:10px;overflow:hidden;margin-bottom:1.5rem">
+  <div style="padding:1rem 1.25rem .75rem;border-bottom:0.5px solid var(--g100);display:flex;justify-content:space-between;align-items:flex-start">
+    <div><div style="font-size:1rem;font-weight:700;line-height:1.3">Maxillary PM &amp; molar · 106–109 / 206–209</div><div style="font-size:.78rem;color:var(--g400);font-family:sans-serif;margin-top:2px">Shallower than dog — zygomatic arch consideration</div></div>
+    <span style="background:var(--a50);color:var(--a800);border:1px solid var(--a100);font-size:.75rem;font-weight:700;font-family:sans-serif;padding:3px 10px;border-radius:5px;white-space:nowrap">~30–40° oblique</span>
+  </div>
+  <div style="background:#111a11;padding:1rem"><svg viewBox="0 0 660 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
+  <rect x="152" y="38" width="356" height="30" rx="8" fill="#2a3d2a" stroke="#5DCAA5" stroke-width="1.5"/>
+  <text x="330" y="57" text-anchor="middle" font-size="12" fill="#9FE1CB" font-family="sans-serif">Feline maxilla — PM and molar region</text>
+  <rect x="210" y="68" width="24" height="18" rx="3" fill="#3d6e4d" stroke="#5DCAA5" stroke-width="1"/>
+  <polygon points="210,86 234,86 229,148 215,148" fill="#2d5e3d" stroke="#5DCAA5" stroke-width="1"/>
+  <text x="222" y="161" text-anchor="middle" font-size="10" fill="#9FE1CB" font-family="sans-serif">PM3</text>
+  <rect x="262" y="68" width="28" height="18" rx="3" fill="#5DCAA5" stroke="#9FE1CB" stroke-width="2"/>
+  <polygon points="262,86 290,86 284,152 268,152" fill="#3d7e4d" stroke="#5DCAA5" stroke-width="1.5"/>
+  <text x="276" y="165" text-anchor="middle" font-size="10" fill="#9FE1CB" font-family="sans-serif">PM4</text>
+  <rect x="316" y="68" width="32" height="18" rx="3" fill="#5DCAA5" stroke="#9FE1CB" stroke-width="2"/>
+  <polygon points="316,86 348,86 342,155 322,155" fill="#3d7e4d" stroke="#5DCAA5" stroke-width="1.5"/>
+  <text x="332" y="168" text-anchor="middle" font-size="10" fill="#9FE1CB" font-family="sans-serif">Molar</text>
+  <rect x="190" y="178" width="272" height="11" rx="4" fill="#1a3060" stroke="#185FA5" stroke-width="2"/>
+  <text x="326" y="187" text-anchor="middle" font-size="10" fill="#B5D4F4" font-family="sans-serif" font-weight="600">SIZE 0 SENSOR — palatally</text>
+  <path d="M 8 100 Q 140 80 160 110" fill="none" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="36" y="80" font-size="11" fill="#888" font-family="sans-serif">Zygomatic</text>
+  <text x="36" y="93" font-size="11" fill="#888" font-family="sans-serif">arch (obstacle)</text>
+  <line x1="160" y1="108" x2="220" y2="100" stroke="#888" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <line x1="140" y1="16" x2="230" y2="62" stroke="#E24B4A" stroke-width="3"/>
+  <polygon points="233,66 221,58 228,47" fill="#E24B4A"/>
+  <rect x="64" y="8" width="166" height="36" rx="4" fill="#1a0a0a"/>
+  <text x="147" y="24" text-anchor="middle" font-size="12" fill="#E24B4A" font-family="sans-serif" font-weight="600">Beam ~30–40°</text>
+  <text x="147" y="39" text-anchor="middle" font-size="11" fill="#E24B4A" font-family="sans-serif">shallower than dog</text>
+  <line x1="188" y1="122" x2="440" y2="178" stroke="#EF9F27" stroke-width="1.5" stroke-dasharray="7,5"/>
+  <text x="444" y="175" font-size="11" fill="#EF9F27" font-family="sans-serif">Bisecting line</text>
+  <rect x="80" y="218" width="520" height="68" rx="7" fill="#0d1f0d" stroke="#3d6e4d" stroke-width="0.5"/>
+  <text x="100" y="238" font-size="12" fill="#9FE1CB" font-family="sans-serif" font-weight="600">Key differences from dog:</text>
+  <text x="100" y="254" font-size="12" fill="#9FE1CB" font-family="sans-serif">✓  Shallower angle (~30–40°) because zygomatic arch is in the way</text>
+  <text x="100" y="270" font-size="12" fill="#9FE1CB" font-family="sans-serif">✓  Size 0 sensor throughout — never force a larger sensor</text>
+  <text x="100" y="286" font-size="12" fill="#9FE1CB" font-family="sans-serif">✓  FORLs most common at PM3–PM4 furcation — furcation involvement = extraction</text>
+</svg></div>
+  <div style="padding:1rem 1.25rem">
+    <ul style="list-style:none;padding:0;margin:0"><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>Shallower angle (~30–40°) than equivalent dog view — zygomatic arch interferes</li><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>Digital sensors partially see through the arch</li><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>PM4 (108/208): two-rooted (MB + palatal) — may need SLOB</li><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>Molar (109/209): three roots — same approach as dog 4th PM</li><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>FORLs most common at PM3–PM4 furcation area</li><li style="position:relative;padding-left:1rem;font-size:.82rem;font-family:sans-serif;line-height:1.5;margin-bottom:3px"><span style="position:absolute;left:0;color:var(--t200)">→</span>Size 0 sensor throughout — furcation involvement usually means extraction</li></ul>
+    
+  </div>
+</div><div class="fm-box"><div style="font-size:1rem;font-weight:700;margin-bottom:1rem;font-family:sans-serif">Full mouth series — cat (10–12 views)</div><div class="fm-grid"><div><h4>Maxillary views</h4><ul class="fm-list"><li style="display:flex;align-items:baseline;gap:.6rem;font-size:.83rem;font-family:sans-serif;padding:.3rem 0;border-bottom:0.5px solid var(--g50)"><span style="background:var(--t800);color:white;font-size:.65rem;font-weight:700;min-width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">1</span>Max. incisors both sides<span style="margin-left:auto;background:var(--g50);color:var(--g600);font-size:.72rem;padding:1px 7px;border-radius:4px;white-space:nowrap;font-weight:600">~60°</span></li><li style="display:flex;align-items:baseline;gap:.6rem;font-size:.83rem;font-family:sans-serif;padding:.3rem 0;border-bottom:0.5px solid var(--g50)"><span style="background:var(--t800);color:white;font-size:.65rem;font-weight:700;min-width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">2</span>Max. canine 104<span style="margin-left:auto;background:var(--g50);color:var(--g600);font-size:.72rem;padding:1px 7px;border-radius:4px;white-space:nowrap;font-weight:600">~45° oblique</span></li><li style="display:flex;align-items:baseline;gap:.6rem;font-size:.83rem;font-family:sans-serif;padding:.3rem 0;border-bottom:0.5px solid var(--g50)"><span style="background:var(--t800);color:white;font-size:.65rem;font-weight:700;min-width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">3</span>Max. PM/M R 106–109<span style="margin-left:auto;background:var(--g50);color:var(--g600);font-size:.72rem;padding:1px 7px;border-radius:4px;white-space:nowrap;font-weight:600">~30–40°</span></li><li style="display:flex;align-items:baseline;gap:.6rem;font-size:.83rem;font-family:sans-serif;padding:.3rem 0;border-bottom:0.5px solid var(--g50)"><span style="background:var(--t800);color:white;font-size:.65rem;font-weight:700;min-width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">4</span>Max. canine 204<span style="margin-left:auto;background:var(--g50);color:var(--g600);font-size:.72rem;padding:1px 7px;border-radius:4px;white-space:nowrap;font-weight:600">~45° oblique</span></li><li style="display:flex;align-items:baseline;gap:.6rem;font-size:.83rem;font-family:sans-serif;padding:.3rem 0;border-bottom:0.5px solid var(--g50)"><span style="background:var(--t800);color:white;font-size:.65rem;font-weight:700;min-width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">5</span>Max. PM/M L 206–209<span style="margin-left:auto;background:var(--g50);color:var(--g600);font-size:.72rem;padding:1px 7px;border-radius:4px;white-space:nowrap;font-weight:600">~30–40°</span></li></ul></div><div><h4>Mandibular views</h4><ul class="fm-list"><li style="display:flex;align-items:baseline;gap:.6rem;font-size:.83rem;font-family:sans-serif;padding:.3rem 0;border-bottom:0.5px solid var(--g50)"><span style="background:var(--t800);color:white;font-size:.65rem;font-weight:700;min-width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">6</span>Mand. incisors both sides<span style="margin-left:auto;background:var(--g50);color:var(--g600);font-size:.72rem;padding:1px 7px;border-radius:4px;white-space:nowrap;font-weight:600">~20°</span></li><li style="display:flex;align-items:baseline;gap:.6rem;font-size:.83rem;font-family:sans-serif;padding:.3rem 0;border-bottom:0.5px solid var(--g50)"><span style="background:var(--t800);color:white;font-size:.65rem;font-weight:700;min-width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">7</span>Mand. canine 304<span style="margin-left:auto;background:var(--g50);color:var(--g600);font-size:.72rem;padding:1px 7px;border-radius:4px;white-space:nowrap;font-weight:600">~20–25°</span></li><li style="display:flex;align-items:baseline;gap:.6rem;font-size:.83rem;font-family:sans-serif;padding:.3rem 0;border-bottom:0.5px solid var(--g50)"><span style="background:var(--t800);color:white;font-size:.65rem;font-weight:700;min-width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">8</span>Mand. PM/M R 307–309<span style="margin-left:auto;background:var(--g50);color:var(--g600);font-size:.72rem;padding:1px 7px;border-radius:4px;white-space:nowrap;font-weight:600">Near-parallel</span></li><li style="display:flex;align-items:baseline;gap:.6rem;font-size:.83rem;font-family:sans-serif;padding:.3rem 0;border-bottom:0.5px solid var(--g50)"><span style="background:var(--t800);color:white;font-size:.65rem;font-weight:700;min-width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">9</span>Mand. canine 404<span style="margin-left:auto;background:var(--g50);color:var(--g600);font-size:.72rem;padding:1px 7px;border-radius:4px;white-space:nowrap;font-weight:600">~20–25°</span></li><li style="display:flex;align-items:baseline;gap:.6rem;font-size:.83rem;font-family:sans-serif;padding:.3rem 0;border-bottom:0.5px solid var(--g50)"><span style="background:var(--t800);color:white;font-size:.65rem;font-weight:700;min-width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">10</span>Mand. PM/M L 407–409<span style="margin-left:auto;background:var(--g50);color:var(--g600);font-size:.72rem;padding:1px 7px;border-radius:4px;white-space:nowrap;font-weight:600">Near-parallel</span></li></ul></div></div></div></div><div class="sec" id="tab-technique"><div class="sl">Core techniques</div><div class="st">Positioning techniques explained</div><div class="sd">Understanding the geometry prevents the most common errors. There are only three techniques — master these and every view becomes straightforward.</div><div class="tc">
+  <h3>Bisecting angle technique</h3>
+  <div class="tc-desc">Default for all maxillary teeth and rostral mandibular teeth — any view where the sensor cannot be parallel to the root.</div>
+  <div style="background:#111a11;padding:1rem;border-radius:8px;margin-bottom:1rem"><svg viewBox="0 0 660 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
+  <rect x="80" y="38" width="500" height="30" rx="8" fill="#2a3d2a" stroke="#5DCAA5" stroke-width="1.5"/>
+  <text x="330" y="57" text-anchor="middle" font-size="13" fill="#9FE1CB" font-family="sans-serif">Cross-section — bisecting angle geometry explained</text>
+  <polygon points="300,68 316,68 308,185" fill="#3d7e4d" stroke="#5DCAA5" stroke-width="1.5"/>
+  <line x1="308" y1="38" x2="308" y2="195" stroke="#5DCAA5" stroke-width="1" stroke-dasharray="5,4" opacity="0.5"/>
+  <text x="324" y="78" font-size="11" fill="#5DCAA5" font-family="sans-serif">Tooth axis</text>
+  <circle cx="308" cy="187" r="4" fill="#E24B4A"/>
+  <text x="322" y="191" font-size="11" fill="#E24B4A" font-family="sans-serif">Apex</text>
+  <rect x="170" y="208" width="340" height="12" rx="4" fill="#1a3060" stroke="#185FA5" stroke-width="2"/>
+  <text x="340" y="217" text-anchor="middle" font-size="11" fill="#B5D4F4" font-family="sans-serif" font-weight="600">SENSOR</text>
+  <line x1="185" y1="140" x2="490" y2="208" stroke="#EF9F27" stroke-width="2" stroke-dasharray="8,5"/>
+  <text x="494" y="205" font-size="12" fill="#EF9F27" font-family="sans-serif" font-weight="600">Bisecting line</text>
+  <line x1="200" y1="8" x2="308" y2="78" stroke="#E24B4A" stroke-width="3"/>
+  <polygon points="311,82 300,72 310,62" fill="#E24B4A"/>
+  <text x="130" y="24" font-size="12" fill="#E24B4A" font-family="sans-serif" font-weight="600">X-ray beam</text>
+  <text x="130" y="39" font-size="11" fill="#E24B4A" font-family="sans-serif">⊥ to bisecting line</text>
+  <rect x="400" y="80" width="200" height="110" rx="7" fill="#0d1f0d" stroke="#3d6e4d" stroke-width="0.5"/>
+  <text x="420" y="100" font-size="11" fill="#9FE1CB" font-family="sans-serif" font-weight="600">Bisecting angle rule:</text>
+  <text x="420" y="118" font-size="11" fill="#9FE1CB" font-family="sans-serif">1. Find tooth long axis</text>
+  <text x="420" y="134" font-size="11" fill="#9FE1CB" font-family="sans-serif">2. Find sensor plane</text>
+  <text x="420" y="150" font-size="11" fill="#9FE1CB" font-family="sans-serif">3. Bisect the angle</text>
+  <text x="420" y="166" font-size="11" fill="#9FE1CB" font-family="sans-serif">4. Aim beam ⊥ to bisect</text>
+  <text x="420" y="184" font-size="12" fill="#EF9F27" font-family="sans-serif" font-weight="600">NOT ⊥ to tooth or sensor!</text>
+  <rect x="80" y="245" width="300" height="42" rx="6" fill="#1a0a0a" stroke="#F7C1C1" stroke-width="0.5"/>
+  <text x="100" y="263" font-size="12" fill="#E24B4A" font-family="sans-serif" font-weight="600">Beam too steep → Foreshortening</text>
+  <text x="100" y="279" font-size="11" fill="#888" font-family="sans-serif">Roots look short/stubby. Fix: reduce angle.</text>
+  <rect x="390" y="245" width="270" height="42" rx="6" fill="#1a1000" stroke="#FAC775" stroke-width="0.5"/>
+  <text x="410" y="263" font-size="12" fill="#EF9F27" font-family="sans-serif" font-weight="600">Beam too shallow → Elongation</text>
+  <text x="410" y="279" font-size="11" fill="#888" font-family="sans-serif">Roots look stretched. Fix: increase angle.</text>
+</svg></div>
+  <div class="tc-row">
+    <div>
+      <div class="tc-rules"><h4>How to do it</h4></div>
+      <ul class="tips">
+        <li>Visualise the long axis of the tooth (crown tip to root tip)</li>
+        <li>Find the plane of the sensor</li>
+        <li>Mentally bisect the angle between them</li>
+        <li>Aim the beam PERPENDICULAR to that bisecting line</li>
+        <li>NOT perpendicular to the tooth. NOT perpendicular to the sensor.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="tc-rules"><h4>Quick angle reference</h4></div>
+      <ul class="tips">
+        <li>Max. incisors: ~60°</li>
+        <li>Max. canine (dog): ~60° oblique</li>
+        <li>Max. canine (cat): ~45° oblique</li>
+        <li>Max. PM (dog): ~45°</li>
+        <li>Max. PM (cat): ~30–40° (zygomatic arch)</li>
+        <li>Mand. incisors/canines: ~20–30°</li>
+      </ul>
+    </div>
+  </div>
+</div><div class="tc">
+  <h3>Parallel technique</h3>
+  <div class="tc-desc">Gold standard — sensor parallel to root, beam 90° to both. Only usable for caudal mandibular teeth in dogs.</div>
+  <div style="background:#111a11;padding:1rem;border-radius:8px;margin-bottom:1rem"><svg viewBox="0 0 660 330" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
+  <line x1="180" y1="8" x2="180" y2="62" stroke="#E24B4A" stroke-width="2.5"/>
+  <polygon points="180,67 174,54 186,54" fill="#E24B4A"/>
+  <line x1="258" y1="8" x2="258" y2="62" stroke="#E24B4A" stroke-width="2.5"/>
+  <polygon points="258,67 252,54 264,54" fill="#E24B4A"/>
+  <line x1="336" y1="8" x2="336" y2="62" stroke="#E24B4A" stroke-width="2.5"/>
+  <polygon points="336,67 330,54 342,54" fill="#E24B4A"/>
+  <line x1="414" y1="8" x2="414" y2="62" stroke="#E24B4A" stroke-width="2.5"/>
+  <polygon points="414,67 408,54 420,54" fill="#E24B4A"/>
+  <rect x="80" y="2" width="500" height="20" rx="4" fill="#1a0a0a"/>
+  <text x="330" y="15" text-anchor="middle" font-size="12" fill="#E24B4A" font-family="sans-serif" font-weight="600">X-ray beam — perfectly vertical (90°) · no angle calculation needed</text>
+  <rect x="162" y="67" width="36" height="19" rx="3" fill="#5DCAA5" stroke="#9FE1CB" stroke-width="1.5"/>
+  <polygon points="162,86 198,86 192,162 168,162" fill="#3d7e4d" stroke="#5DCAA5" stroke-width="1"/>
+  <text x="180" y="177" text-anchor="middle" font-size="11" fill="#9FE1CB" font-family="sans-serif">PM2</text>
+  <rect x="238" y="67" width="38" height="19" rx="3" fill="#5DCAA5" stroke="#9FE1CB" stroke-width="1.5"/>
+  <polygon points="238,86 276,86 270,162 244,162" fill="#3d7e4d" stroke="#5DCAA5" stroke-width="1"/>
+  <text x="257" y="177" text-anchor="middle" font-size="11" fill="#9FE1CB" font-family="sans-serif">PM3</text>
+  <rect x="316" y="67" width="40" height="19" rx="3" fill="#5DCAA5" stroke="#9FE1CB" stroke-width="1.5"/>
+  <polygon points="316,86 356,86 349,162 323,162" fill="#3d7e4d" stroke="#5DCAA5" stroke-width="1"/>
+  <text x="336" y="177" text-anchor="middle" font-size="11" fill="#9FE1CB" font-family="sans-serif">PM4</text>
+  <rect x="394" y="67" width="42" height="19" rx="3" fill="#5DCAA5" stroke="#9FE1CB" stroke-width="1.5"/>
+  <polygon points="394,86 436,86 428,162 400,162" fill="#3d7e4d" stroke="#5DCAA5" stroke-width="1"/>
+  <text x="415" y="177" text-anchor="middle" font-size="11" fill="#9FE1CB" font-family="sans-serif">M1</text>
+  <line x1="162" y1="77" x2="110" y2="66" stroke="#9FE1CB" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <text x="106" y="64" text-anchor="end" font-size="12" fill="#9FE1CB" font-family="sans-serif" font-weight="600">Crown</text>
+  <line x1="168" y1="128" x2="110" y2="128" stroke="#9FE1CB" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <text x="106" y="132" text-anchor="end" font-size="12" fill="#9FE1CB" font-family="sans-serif">Root</text>
+  <line x1="170" y1="162" x2="110" y2="175" stroke="#E24B4A" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <text x="106" y="179" text-anchor="end" font-size="12" fill="#E24B4A" font-family="sans-serif" font-weight="600">Apex</text>
+  <rect x="112" y="190" width="436" height="34" rx="8" fill="#2a3d2a" stroke="#5DCAA5" stroke-width="1.5"/>
+  <text x="330" y="211" text-anchor="middle" font-size="13" fill="#9FE1CB" font-family="sans-serif">Mandible (jaw bone)</text>
+  <rect x="112" y="232" width="436" height="13" rx="5" fill="#1a3060" stroke="#185FA5" stroke-width="2"/>
+  <text x="330" y="242" text-anchor="middle" font-size="11" fill="#B5D4F4" font-family="sans-serif" font-weight="600">SENSOR — lingual to teeth, PARALLEL to root axis</text>
+  <rect x="342" y="67" width="11" height="11" fill="none" stroke="#EF9F27" stroke-width="1.5"/>
+  <text x="358" y="76" font-size="11" fill="#EF9F27" font-family="sans-serif">90°</text>
+  <rect x="342" y="232" width="11" height="11" fill="none" stroke="#EF9F27" stroke-width="1.5"/>
+  <polygon points="548,232 578,232 548,256" fill="#EF9F27" stroke="#854F0B" stroke-width="1" opacity="0.9"/>
+  <text x="584" y="250" font-size="11" fill="#EF9F27" font-family="sans-serif">Foam wedge</text>
+  <rect x="80" y="265" width="520" height="52" rx="7" fill="#0d1f0d" stroke="#3d6e4d" stroke-width="0.5"/>
+  <text x="100" y="284" font-size="12" fill="#9FE1CB" font-family="sans-serif" font-weight="600">Why parallel works here:</text>
+  <text x="100" y="300" font-size="12" fill="#9FE1CB" font-family="sans-serif">Long dog mandible = space for true parallel. NOT possible for maxillary or rostral mandibular teeth.</text>
+  <text x="100" y="314" font-size="12" fill="#9FE1CB" font-family="sans-serif">Patient: lateral recumbency, targeted side DOWN. Usually 2 images per side (PM2–M3).</text>
+</svg></div>
+  <div class="tc-row">
+    <div>
+      <div class="tc-rules"><h4>Where to use</h4></div>
+      <ul class="tips">
+        <li>Mandibular PM and molars in dogs (305–311 / 405–411)</li>
+        <li>Near-parallel for feline mandibular PM/M</li>
+      </ul>
+      <div class="tc-rules" style="margin-top:1rem"><h4>Why it's better</h4></div>
+      <ul class="tips">
+        <li>No bisecting angle mental arithmetic</li>
+        <li>Accurate root length — zero distortion</li>
+        <li>Less operator-dependent error</li>
+      </ul>
+    </div>
+    <div>
+      <div class="tc-rules"><h4>Why not used everywhere</h4></div>
+      <ul class="tips">
+        <li>Palate prevents parallel sensor placement for maxillary teeth</li>
+        <li>Mandibular symphysis blocks rostral mandibular views</li>
+        <li>Cat mandible too narrow for true parallel</li>
+        <li>Only the long dog mandible creates enough lingual space</li>
+      </ul>
+    </div>
+  </div>
+</div><div class="slob">
+  <h3>SLOB rule — separating superimposed roots</h3>
+  <div class="slob-rule">Same Lingual · Opposite Buccal</div>
+  <div style="background:#111a11;padding:1rem;border-radius:8px;margin-bottom:1rem"><svg viewBox="0 0 660 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
+  <rect x="180" y="38" width="300" height="30" rx="8" fill="#2a3d2a" stroke="#5DCAA5" stroke-width="1.5"/>
+  <text x="330" y="57" text-anchor="middle" font-size="12" fill="#9FE1CB" font-family="sans-serif">Maxilla — top-down cross-section view</text>
+  <circle cx="252" cy="100" r="26" fill="#2d5e3d" stroke="#5DCAA5" stroke-width="2"/>
+  <text x="252" y="96" text-anchor="middle" font-size="12" fill="#E1F5EE" font-family="sans-serif" font-weight="600">MB</text>
+  <text x="252" y="111" text-anchor="middle" font-size="10" fill="#9FE1CB" font-family="sans-serif">root</text>
+  <circle cx="330" cy="100" r="26" fill="#2d5e3d" stroke="#5DCAA5" stroke-width="2"/>
+  <text x="330" y="96" text-anchor="middle" font-size="12" fill="#E1F5EE" font-family="sans-serif" font-weight="600">DB</text>
+  <text x="330" y="111" text-anchor="middle" font-size="10" fill="#9FE1CB" font-family="sans-serif">root</text>
+  <circle cx="408" cy="100" r="26" fill="#1d4e3d" stroke="#9FE1CB" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="408" y="96" text-anchor="middle" font-size="12" fill="#E1F5EE" font-family="sans-serif" font-weight="600">P</text>
+  <text x="408" y="111" text-anchor="middle" font-size="10" fill="#9FE1CB" font-family="sans-serif">root</text>
+  <text x="186" y="98" text-anchor="end" font-size="11" fill="#666" font-family="sans-serif">← Buccal</text>
+  <text x="444" y="98" font-size="11" fill="#666" font-family="sans-serif">Lingual →</text>
+  <line x1="330" y1="8" x2="330" y2="68" stroke="#E24B4A" stroke-width="2.5"/>
+  <polygon points="330,72 324,58 336,58" fill="#E24B4A"/>
+  <text x="380" y="22" font-size="11" fill="#E24B4A" font-family="sans-serif">Standard beam</text>
+  <line x1="210" y1="8" x2="248" y2="68" stroke="#E24B4A" stroke-width="2" stroke-dasharray="5,3" opacity="0.7"/>
+  <polygon points="250,72 240,62 249,55" fill="#E24B4A" opacity="0.7"/>
+  <text x="150" y="22" text-anchor="middle" font-size="11" fill="#E24B4A" font-family="sans-serif">SLOB shift</text>
+  <text x="150" y="36" text-anchor="middle" font-size="10" fill="#E24B4A" font-family="sans-serif">(tube moves mesial)</text>
+  <line x1="80" y1="162" x2="580" y2="162" stroke="#333" stroke-width="0.8" stroke-dasharray="4,4"/>
+  <text x="330" y="158" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">Result on radiograph after SLOB shift:</text>
+  <circle cx="204" cy="222" r="26" fill="#2d5e3d" stroke="#5DCAA5" stroke-width="2"/>
+  <text x="204" y="218" text-anchor="middle" font-size="12" fill="#E1F5EE" font-family="sans-serif" font-weight="600">MB</text>
+  <text x="204" y="233" text-anchor="middle" font-size="10" fill="#9FE1CB" font-family="sans-serif">root</text>
+  <text x="204" y="257" text-anchor="middle" font-size="11" fill="#EF9F27" font-family="sans-serif">→ moved mesial</text>
+  <text x="204" y="270" text-anchor="middle" font-size="10" fill="#888" font-family="sans-serif">(same as tube)</text>
+  <circle cx="330" cy="222" r="26" fill="#2d5e3d" stroke="#5DCAA5" stroke-width="2"/>
+  <text x="330" y="218" text-anchor="middle" font-size="12" fill="#E1F5EE" font-family="sans-serif" font-weight="600">DB</text>
+  <text x="330" y="233" text-anchor="middle" font-size="10" fill="#9FE1CB" font-family="sans-serif">root</text>
+  <text x="330" y="257" text-anchor="middle" font-size="11" fill="#888" font-family="sans-serif">stays same</text>
+  <circle cx="460" cy="222" r="26" fill="#1d4e3d" stroke="#9FE1CB" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="460" y="218" text-anchor="middle" font-size="12" fill="#E1F5EE" font-family="sans-serif" font-weight="600">P</text>
+  <text x="460" y="233" text-anchor="middle" font-size="10" fill="#9FE1CB" font-family="sans-serif">root</text>
+  <text x="460" y="257" text-anchor="middle" font-size="11" fill="#EF9F27" font-family="sans-serif">← moved distal</text>
+  <text x="460" y="270" text-anchor="middle" font-size="10" fill="#888" font-family="sans-serif">(opposite to tube)</text>
+  <rect x="80" y="294" width="500" height="52" rx="7" fill="#0d1f0d" stroke="#3d6e4d" stroke-width="0.5"/>
+  <text x="100" y="314" font-size="13" fill="#9FE1CB" font-family="sans-serif" font-weight="600">✓  Roots are now separated on the image</text>
+  <text x="100" y="330" font-size="12" fill="#9FE1CB" font-family="sans-serif">Compare standard view + SLOB view side by side to identify each root individually</text>
+  <text x="100" y="344" font-size="12" fill="#9FE1CB" font-family="sans-serif">Shift tube no more than 15–20° mesially. Used mainly for 108/208 dog and 109/209 cat</text>
+</svg></div>
+  <div class="tc-row">
+    <div>
+      <ul class="tips" style="color:var(--t600)">
+        <li>Take standard view first — note which roots overlap</li>
+        <li>Shift tube mesially 15–20° — retake</li>
+        <li>Buccal roots move in SAME direction as tube</li>
+        <li>Palatal/lingual root moves in OPPOSITE direction</li>
+        <li>Compare both images to identify each root</li>
+        <li>Don't shift more than 20° — causes elongation</li>
+      </ul>
+    </div>
+    <div>
+      <div class="tc-rules"><h4>Used for</h4></div>
+      <ul class="tips" style="color:var(--t600)">
+        <li>Upper 4th PM dog (108/208) — MB, DB, palatal</li>
+        <li>Upper molar cat (109/209)</li>
+        <li>Any multi-rooted tooth with overlapping roots</li>
+      </ul>
+    </div>
+  </div>
+</div></div><div class="sec" id="tab-errors"><div class="sl">Quality control</div><div class="st">Common errors &amp; fixes</div><div class="sd">Most radiograph errors are one of these eight. Recognising them quickly means faster retakes and less anaesthetic time.</div><div class="err-grid"><div class="err-card">
+  <div class="err-head"><div class="err-icon" style="background:var(--r50)"><svg width="18" height="18" viewBox="0 0 18 18"><path d="M9 2 L9 12" stroke="#A32D2D" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="9" r="6.5" fill="none" stroke="#A32D2D" stroke-width="1.8"/><circle cx="9" cy="15.5" r="1.5" fill="#A32D2D"/></svg></div><div class="err-name">Foreshortening</div></div>
+  <div class="err-body">
+    <div class="err-row"><div class="err-lbl">Looks like</div><div>Teeth appear shorter — roots stubby</div></div>
+    <div class="err-row"><div class="err-lbl">Cause</div><div>Beam too steep (overangulated)</div></div>
+    <div class="err-row"><div class="err-lbl">Fix</div><div class="fix">Reduce beam angle — tilt tube away</div></div>
+    <div class="err-row"><div class="err-lbl">Tip</div><div>Most common with maxillary incisors</div></div>
+  </div>
+</div><div class="err-card">
+  <div class="err-head"><div class="err-icon" style="background:var(--a50)"><svg width="18" height="18" viewBox="0 0 18 18"><path d="M9 2 L9 14" stroke="#854F0B" stroke-width="2" stroke-linecap="round"/><path d="M6 14 L12 14" stroke="#854F0B" stroke-width="2" stroke-linecap="round"/></svg></div><div class="err-name">Elongation</div></div>
+  <div class="err-body">
+    <div class="err-row"><div class="err-lbl">Looks like</div><div>Teeth appear longer — roots stretched</div></div>
+    <div class="err-row"><div class="err-lbl">Cause</div><div>Beam too shallow (underangulated)</div></div>
+    <div class="err-row"><div class="err-lbl">Fix</div><div class="fix">Increase beam angle — tip more toward teeth</div></div>
+    <div class="err-row"><div class="err-lbl">Tip</div><div>Common when hesitating over steep nose angles</div></div>
+  </div>
+</div><div class="err-card">
+  <div class="err-head"><div class="err-icon" style="background:var(--b50)"><svg width="18" height="18" viewBox="0 0 18 18"><rect x="3" y="3" width="12" height="12" rx="2" fill="none" stroke="#185FA5" stroke-width="1.8"/><rect x="3" y="5" width="12" height="9" rx="1.5" fill="none" stroke="#185FA5" stroke-width="1.8"/><path d="M8 5 L10 5 L10 3 L8 3 Z" fill="#185FA5"/></svg></div><div class="err-name">Cone cut</div></div>
+  <div class="err-body">
+    <div class="err-row"><div class="err-lbl">Looks like</div><div>White crescent cutting across image corner</div></div>
+    <div class="err-row"><div class="err-lbl">Cause</div><div>Beam not centred over sensor</div></div>
+    <div class="err-row"><div class="err-lbl">Fix</div><div class="fix">Centre beam over middle of sensor before exposing</div></div>
+    <div class="err-row"><div class="err-lbl">Tip</div><div>Touch sensor centre as a guide first</div></div>
+  </div>
+</div><div class="err-card">
+  <div class="err-head"><div class="err-icon" style="background:var(--coral50)"><svg width="18" height="18" viewBox="0 0 18 18"><path d="M4 9 Q9 3 14 9 Q9 15 4 9Z" fill="none" stroke="#993C1D" stroke-width="1.8"/></svg></div><div class="err-name">Superimposition</div></div>
+  <div class="err-body">
+    <div class="err-row"><div class="err-lbl">Looks like</div><div>Roots overlap — cannot see individual roots</div></div>
+    <div class="err-row"><div class="err-lbl">Cause</div><div>Not enough oblique angle</div></div>
+    <div class="err-row"><div class="err-lbl">Fix</div><div class="fix">Add lateral oblique; apply SLOB rule</div></div>
+    <div class="err-row"><div class="err-lbl">Tip</div><div>Compare two images with tube shifted</div></div>
+  </div>
+</div><div class="err-card">
+  <div class="err-head"><div class="err-icon" style="background:var(--r50)"><svg width="18" height="18" viewBox="0 0 18 18"><path d="M3 3 L15 15 M15 3 L3 15" stroke="#A32D2D" stroke-width="2" stroke-linecap="round"/></svg></div><div class="err-name">Motion blur</div></div>
+  <div class="err-body">
+    <div class="err-row"><div class="err-lbl">Looks like</div><div>Double edges; margins indistinct</div></div>
+    <div class="err-row"><div class="err-lbl">Cause</div><div>Patient movement; sensor shift</div></div>
+    <div class="err-row"><div class="err-lbl">Fix</div><div class="fix">Check depth; secure sensor with foam</div></div>
+    <div class="err-row"><div class="err-lbl">Tip</div><div>Stable foam under sensor not on table</div></div>
+  </div>
+</div><div class="err-card">
+  <div class="err-head"><div class="err-icon" style="background:var(--a50)"><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="6.5" fill="none" stroke="#854F0B" stroke-width="1.8"/></svg></div><div class="err-name">Flipped / mirrored</div></div>
+  <div class="err-body">
+    <div class="err-row"><div class="err-lbl">Looks like</div><div>Image mirrored; teeth on wrong side</div></div>
+    <div class="err-row"><div class="err-lbl">Cause</div><div>Sensor placed back-to-front</div></div>
+    <div class="err-row"><div class="err-lbl">Fix</div><div class="fix">Dotted/pimple side always faces beam</div></div>
+    <div class="err-row"><div class="err-lbl">Tip</div><div>Label R/L immediately after every image</div></div>
+  </div>
+</div><div class="err-card">
+  <div class="err-head"><div class="err-icon" style="background:var(--b50)"><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="6.5" fill="none" stroke="#185FA5" stroke-width="1.8"/><path d="M9 5 L9 9 L12 12" stroke="#185FA5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="err-name">Root tip cut off</div></div>
+  <div class="err-body">
+    <div class="err-row"><div class="err-lbl">Looks like</div><div>Apex not visible; root truncated</div></div>
+    <div class="err-row"><div class="err-lbl">Cause</div><div>Sensor not far enough apically</div></div>
+    <div class="err-row"><div class="err-lbl">Fix</div><div class="fix">Push sensor apically; use largest sensor</div></div>
+    <div class="err-row"><div class="err-lbl">Tip</div><div>Always include 3mm beyond apex</div></div>
+  </div>
+</div><div class="err-card">
+  <div class="err-head"><div class="err-icon" style="background:var(--coral50)"><svg width="18" height="18" viewBox="0 0 18 18"><rect x="3" y="3" width="12" height="12" rx="2" fill="none" stroke="#993C1D" stroke-width="1.8"/></svg></div><div class="err-name">Overexposed / dark</div></div>
+  <div class="err-body">
+    <div class="err-row"><div class="err-lbl">Looks like</div><div>Image too dark; tooth detail lost</div></div>
+    <div class="err-row"><div class="err-lbl">Cause</div><div>kVp or exposure time too high</div></div>
+    <div class="err-row"><div class="err-lbl">Fix</div><div class="fix">Reduce exposure 20% or kVp by 5</div></div>
+    <div class="err-row"><div class="err-lbl">Tip</div><div>Cats need far lower settings — create presets</div></div>
+  </div>
+</div></div><div class="checklist" style="margin-top:2rem">
+  <div style="font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;opacity:.7;margin-bottom:.75rem;font-family:sans-serif">Pre-acceptance checklist — run through before accepting each image</div>
+  <div class="cg">
+    <div style="font-size:.82rem;opacity:.9">☐ &nbsp;Full root length visible?</div>
+    <div style="font-size:.82rem;opacity:.9">☐ &nbsp;All roots separated?</div>
+    <div style="font-size:.82rem;opacity:.9">☐ &nbsp;≥3mm beyond apex?</div>
+    <div style="font-size:.82rem;opacity:.9">☐ &nbsp;Realistic tooth length?</div>
+    <div style="font-size:.82rem;opacity:.9">☐ &nbsp;Sharp — no blur?</div>
+    <div style="font-size:.82rem;opacity:.9">☐ &nbsp;L/R labelled correctly?</div>
+    <div style="font-size:.82rem;opacity:.9">☐ &nbsp;Good contrast?</div>
+    <div style="font-size:.82rem;opacity:.9">☐ &nbsp;No cone cut?</div>
+  </div>
+</div></div><div class="sec" id="tab-resources"><div class="sl">Further learning</div><div class="st">Videos, articles &amp; references</div><div class="sd">All videos are free on YouTube — click any card to watch. Start with the iM3 positioning guide and the Dr Beckman cat series.</div><div class="vid-cat">Positioning technique</div><div class="vid-grid"><a href="https://www.youtube.com/watch?v=Nm-oqJlo0fY" target="_blank" style="text-decoration:none;color:inherit;">
+  <div style="background:white;border:0.5px solid var(--g100);border-radius:10px;overflow:hidden;transition:box-shadow .15s" onmouseover="this.style.boxShadow='0 4px 18px rgba(0,0,0,0.12)'" onmouseout="this.style.boxShadow='none'">
+    <div style="height:100px;background:#1a3a5c;display:flex;align-items:center;justify-content:center;position:relative">
+      <div style="width:44px;height:44px;background:rgba(255,0,0,.85);border-radius:50%;display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 14 14"><polygon points="4,2 12,7 4,12" fill="white"/></svg></div>
+      <div style="position:absolute;bottom:7px;right:8px;background:rgba(0,0,0,.75);color:white;font-size:11px;padding:2px 7px;border-radius:4px;font-family:sans-serif">IMV iM3 · 2023</div>
+    </div>
+    <div style="padding:.8rem 1rem">
+      <div style="font-weight:600;font-size:.87rem;color:var(--g900);font-family:sans-serif;margin-bottom:4px;line-height:1.3">Complete canine X-ray positioning — iM3 4DC</div>
+      <div style="font-size:.77rem;color:var(--g600);font-family:sans-serif;line-height:1.5">Claire-Louise walks through every canine view with the 4DC dental generator. Comprehensive and UK-relevant.</div>
+      <div style="margin-top:6px;font-size:.72rem;color:var(--t600);font-family:sans-serif;font-weight:600">▶ Watch on YouTube</div>
+    </div>
+  </div></a><a href="https://www.youtube.com/watch?v=rThck6IyIeU" target="_blank" style="text-decoration:none;color:inherit;">
+  <div style="background:white;border:0.5px solid var(--g100);border-radius:10px;overflow:hidden;transition:box-shadow .15s" onmouseover="this.style.boxShadow='0 4px 18px rgba(0,0,0,0.12)'" onmouseout="this.style.boxShadow='none'">
+    <div style="height:100px;background:#1a4a3a;display:flex;align-items:center;justify-content:center;position:relative">
+      <div style="width:44px;height:44px;background:rgba(255,0,0,.85);border-radius:50%;display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 14 14"><polygon points="4,2 12,7 4,12" fill="white"/></svg></div>
+      <div style="position:absolute;bottom:7px;right:8px;background:rgba(0,0,0,.75);color:white;font-size:11px;padding:2px 7px;border-radius:4px;font-family:sans-serif">Today's Vet Nurse · 2019</div>
+    </div>
+    <div style="padding:.8rem 1rem">
+      <div style="font-weight:600;font-size:.87rem;color:var(--g900);font-family:sans-serif;margin-bottom:4px;line-height:1.3">Radiographic positioning — full-mouth technique</div>
+      <div style="font-size:.77rem;color:var(--g600);font-family:sans-serif;line-height:1.5">Step-by-step positioning for all views. Aimed at nurses and techs. Good for team training.</div>
+      <div style="margin-top:6px;font-size:.72rem;color:var(--t600);font-family:sans-serif;font-weight:600">▶ Watch on YouTube</div>
+    </div>
+  </div></a><a href="https://www.youtube.com/watch?v=9S_ly7jqH2c" target="_blank" style="text-decoration:none;color:inherit;">
+  <div style="background:white;border:0.5px solid var(--g100);border-radius:10px;overflow:hidden;transition:box-shadow .15s" onmouseover="this.style.boxShadow='0 4px 18px rgba(0,0,0,0.12)'" onmouseout="this.style.boxShadow='none'">
+    <div style="height:100px;background:#2a2a5a;display:flex;align-items:center;justify-content:center;position:relative">
+      <div style="width:44px;height:44px;background:rgba(255,0,0,.85);border-radius:50%;display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 14 14"><polygon points="4,2 12,7 4,12" fill="white"/></svg></div>
+      <div style="position:absolute;bottom:7px;right:8px;background:rgba(0,0,0,.75);color:white;font-size:11px;padding:2px 7px;border-radius:4px;font-family:sans-serif">MyVet Imaging · 2019</div>
+    </div>
+    <div style="padding:.8rem 1rem">
+      <div style="font-weight:600;font-size:.87rem;color:var(--g900);font-family:sans-serif;margin-bottom:4px;line-height:1.3">Small animal dental positioning guide</div>
+      <div style="font-size:.77rem;color:var(--g600);font-family:sans-serif;line-height:1.5">Basic positioning for dogs and cats — clear and concise. Good for new starters.</div>
+      <div style="margin-top:6px;font-size:.72rem;color:var(--t600);font-family:sans-serif;font-weight:600">▶ Watch on YouTube</div>
+    </div>
+  </div></a><a href="https://www.youtube.com/watch?v=NYPEFM75aXE" target="_blank" style="text-decoration:none;color:inherit;">
+  <div style="background:white;border:0.5px solid var(--g100);border-radius:10px;overflow:hidden;transition:box-shadow .15s" onmouseover="this.style.boxShadow='0 4px 18px rgba(0,0,0,0.12)'" onmouseout="this.style.boxShadow='none'">
+    <div style="height:100px;background:#4a1a3a;display:flex;align-items:center;justify-content:center;position:relative">
+      <div style="width:44px;height:44px;background:rgba(255,0,0,.85);border-radius:50%;display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 14 14"><polygon points="4,2 12,7 4,12" fill="white"/></svg></div>
+      <div style="position:absolute;bottom:7px;right:8px;background:rgba(0,0,0,.75);color:white;font-size:11px;padding:2px 7px;border-radius:4px;font-family:sans-serif">Vet Dentistry Inc · 2024</div>
+    </div>
+    <div style="padding:.8rem 1rem">
+      <div style="font-weight:600;font-size:.87rem;color:var(--g900);font-family:sans-serif;margin-bottom:4px;line-height:1.3">Perfect positioning — patient by patient</div>
+      <div style="font-size:.77rem;color:var(--g600);font-family:sans-serif;line-height:1.5">Annie demonstrates proper patient positioning for every view with tips for consistent results.</div>
+      <div style="margin-top:6px;font-size:.72rem;color:var(--t600);font-family:sans-serif;font-weight:600">▶ Watch on YouTube</div>
+    </div>
+  </div></a></div><div class="vid-cat">Bisecting angle &amp; technique explained</div><div class="vid-grid"><a href="https://www.youtube.com/watch?v=1w32NZn-Jhs" target="_blank" style="text-decoration:none;color:inherit;">
+  <div style="background:white;border:0.5px solid var(--g100);border-radius:10px;overflow:hidden;transition:box-shadow .15s" onmouseover="this.style.boxShadow='0 4px 18px rgba(0,0,0,0.12)'" onmouseout="this.style.boxShadow='none'">
+    <div style="height:100px;background:#2a4a1a;display:flex;align-items:center;justify-content:center;position:relative">
+      <div style="width:44px;height:44px;background:rgba(255,0,0,.85);border-radius:50%;display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 14 14"><polygon points="4,2 12,7 4,12" fill="white"/></svg></div>
+      <div style="position:absolute;bottom:7px;right:8px;background:rgba(0,0,0,.75);color:white;font-size:11px;padding:2px 7px;border-radius:4px;font-family:sans-serif">Animation · 2021</div>
+    </div>
+    <div style="padding:.8rem 1rem">
+      <div style="font-weight:600;font-size:.87rem;color:var(--g900);font-family:sans-serif;margin-bottom:4px;line-height:1.3">Bisecting angle — animated explainer</div>
+      <div style="font-size:.77rem;color:var(--g600);font-family:sans-serif;line-height:1.5">The clearest visual explanation of why the beam must be perpendicular to the bisecting line. Great for training.</div>
+      <div style="margin-top:6px;font-size:.72rem;color:var(--t600);font-family:sans-serif;font-weight:600">▶ Watch on YouTube</div>
+    </div>
+  </div></a><a href="https://www.youtube.com/watch?v=-sGRrPLmChY" target="_blank" style="text-decoration:none;color:inherit;">
+  <div style="background:white;border:0.5px solid var(--g100);border-radius:10px;overflow:hidden;transition:box-shadow .15s" onmouseover="this.style.boxShadow='0 4px 18px rgba(0,0,0,0.12)'" onmouseout="this.style.boxShadow='none'">
+    <div style="height:100px;background:#3a2a1a;display:flex;align-items:center;justify-content:center;position:relative">
+      <div style="width:44px;height:44px;background:rgba(255,0,0,.85);border-radius:50%;display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 14 14"><polygon points="4,2 12,7 4,12" fill="white"/></svg></div>
+      <div style="position:absolute;bottom:7px;right:8px;background:rgba(0,0,0,.75);color:white;font-size:11px;padding:2px 7px;border-radius:4px;font-family:sans-serif">dvm360 · 2017</div>
+    </div>
+    <div style="padding:.8rem 1rem">
+      <div style="font-weight:600;font-size:.87rem;color:var(--g900);font-family:sans-serif;margin-bottom:4px;line-height:1.3">Diagnostic dental radiographs: a concise how-to</div>
+      <div style="font-size:.77rem;color:var(--g600);font-family:sans-serif;line-height:1.5">Mary Berg RVT VTS(Dentistry). Practical live demonstration of a full-mouth series. Classic team reference.</div>
+      <div style="margin-top:6px;font-size:.72rem;color:var(--t600);font-family:sans-serif;font-weight:600">▶ Watch on YouTube</div>
+    </div>
+  </div></a><a href="https://www.youtube.com/watch?v=uiW8f3l5BzQ" target="_blank" style="text-decoration:none;color:inherit;">
+  <div style="background:white;border:0.5px solid var(--g100);border-radius:10px;overflow:hidden;transition:box-shadow .15s" onmouseover="this.style.boxShadow='0 4px 18px rgba(0,0,0,0.12)'" onmouseout="this.style.boxShadow='none'">
+    <div style="height:100px;background:#1a2a4a;display:flex;align-items:center;justify-content:center;position:relative">
+      <div style="width:44px;height:44px;background:rgba(255,0,0,.85);border-radius:50%;display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 14 14"><polygon points="4,2 12,7 4,12" fill="white"/></svg></div>
+      <div style="position:absolute;bottom:7px;right:8px;background:rgba(0,0,0,.75);color:white;font-size:11px;padding:2px 7px;border-radius:4px;font-family:sans-serif">Dr Beckman DAVDC · 2011</div>
+    </div>
+    <div style="padding:.8rem 1rem">
+      <div style="font-weight:600;font-size:.87rem;color:var(--g900);font-family:sans-serif;margin-bottom:4px;line-height:1.3">Full mouth cat dental radiography</div>
+      <div style="font-size:.77rem;color:var(--g600);font-family:sans-serif;line-height:1.5">Simplifies feline positioning for the complete cat series. Widely watched classic.</div>
+      <div style="margin-top:6px;font-size:.72rem;color:var(--t600);font-family:sans-serif;font-weight:600">▶ Watch on YouTube</div>
+    </div>
+  </div></a><a href="https://www.youtube.com/watch?v=Cn7W_Vx8xxM" target="_blank" style="text-decoration:none;color:inherit;">
+  <div style="background:white;border:0.5px solid var(--g100);border-radius:10px;overflow:hidden;transition:box-shadow .15s" onmouseover="this.style.boxShadow='0 4px 18px rgba(0,0,0,0.12)'" onmouseout="this.style.boxShadow='none'">
+    <div style="height:100px;background:#3a1a4a;display:flex;align-items:center;justify-content:center;position:relative">
+      <div style="width:44px;height:44px;background:rgba(255,0,0,.85);border-radius:50%;display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 14 14"><polygon points="4,2 12,7 4,12" fill="white"/></svg></div>
+      <div style="position:absolute;bottom:7px;right:8px;background:rgba(0,0,0,.75);color:white;font-size:11px;padding:2px 7px;border-radius:4px;font-family:sans-serif">Webinar · 2025</div>
+    </div>
+    <div style="padding:.8rem 1rem">
+      <div style="font-weight:600;font-size:.87rem;color:var(--g900);font-family:sans-serif;margin-bottom:4px;line-height:1.3">Mastering radiographic positioning — tips &amp; tricks</div>
+      <div style="font-size:.77rem;color:var(--g600);font-family:sans-serif;line-height:1.5">Expert techniques for capturing clear, accurate images. Most recent comprehensive resource available.</div>
+      <div style="margin-top:6px;font-size:.72rem;color:var(--t600);font-family:sans-serif;font-weight:600">▶ Watch on YouTube</div>
+    </div>
+  </div></a></div><div class="vid-cat">Radiograph interpretation</div><div class="vid-grid"><a href="https://www.youtube.com/watch?v=Q6Xe2t2G_GE" target="_blank" style="text-decoration:none;color:inherit;">
+  <div style="background:white;border:0.5px solid var(--g100);border-radius:10px;overflow:hidden;transition:box-shadow .15s" onmouseover="this.style.boxShadow='0 4px 18px rgba(0,0,0,0.12)'" onmouseout="this.style.boxShadow='none'">
+    <div style="height:100px;background:#1a3a2a;display:flex;align-items:center;justify-content:center;position:relative">
+      <div style="width:44px;height:44px;background:rgba(255,0,0,.85);border-radius:50%;display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 14 14"><polygon points="4,2 12,7 4,12" fill="white"/></svg></div>
+      <div style="position:absolute;bottom:7px;right:8px;background:rgba(0,0,0,.75);color:white;font-size:11px;padding:2px 7px;border-radius:4px;font-family:sans-serif">Vet Dentistry · 2021</div>
+    </div>
+    <div style="padding:.8rem 1rem">
+      <div style="font-weight:600;font-size:.87rem;color:var(--g900);font-family:sans-serif;margin-bottom:4px;line-height:1.3">Radiology: a beginner's guide to interpretation</div>
+      <div style="font-size:.77rem;color:var(--g600);font-family:sans-serif;line-height:1.5">Normal anatomy, common pathologies, what to look for. Good starting point for the whole team.</div>
+      <div style="margin-top:6px;font-size:.72rem;color:var(--t600);font-family:sans-serif;font-weight:600">▶ Watch on YouTube</div>
+    </div>
+  </div></a><a href="https://www.youtube.com/watch?v=MDiKzXg2sxQ" target="_blank" style="text-decoration:none;color:inherit;">
+  <div style="background:white;border:0.5px solid var(--g100);border-radius:10px;overflow:hidden;transition:box-shadow .15s" onmouseover="this.style.boxShadow='0 4px 18px rgba(0,0,0,0.12)'" onmouseout="this.style.boxShadow='none'">
+    <div style="height:100px;background:#2a1a3a;display:flex;align-items:center;justify-content:center;position:relative">
+      <div style="width:44px;height:44px;background:rgba(255,0,0,.85);border-radius:50%;display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 14 14"><polygon points="4,2 12,7 4,12" fill="white"/></svg></div>
+      <div style="position:absolute;bottom:7px;right:8px;background:rgba(0,0,0,.75);color:white;font-size:11px;padding:2px 7px;border-radius:4px;font-family:sans-serif">Webinar · 2024</div>
+    </div>
+    <div style="padding:.8rem 1rem">
+      <div style="font-weight:600;font-size:.87rem;color:var(--g900);font-family:sans-serif;margin-bottom:4px;line-height:1.3">Interpretation of common pathologies + image tips</div>
+      <div style="font-size:.77rem;color:var(--g600);font-family:sans-serif;line-height:1.5">Full webinar covering image capture and interpretation. Recent and comprehensive.</div>
+      <div style="margin-top:6px;font-size:.72rem;color:var(--t600);font-family:sans-serif;font-weight:600">▶ Watch on YouTube</div>
+    </div>
+  </div></a><a href="https://www.youtube.com/watch?v=LwZiPCnuKFw" target="_blank" style="text-decoration:none;color:inherit;">
+  <div style="background:white;border:0.5px solid var(--g100);border-radius:10px;overflow:hidden;transition:box-shadow .15s" onmouseover="this.style.boxShadow='0 4px 18px rgba(0,0,0,0.12)'" onmouseout="this.style.boxShadow='none'">
+    <div style="height:100px;background:#1a4a2a;display:flex;align-items:center;justify-content:center;position:relative">
+      <div style="width:44px;height:44px;background:rgba(255,0,0,.85);border-radius:50%;display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 14 14"><polygon points="4,2 12,7 4,12" fill="white"/></svg></div>
+      <div style="position:absolute;bottom:7px;right:8px;background:rgba(0,0,0,.75);color:white;font-size:11px;padding:2px 7px;border-radius:4px;font-family:sans-serif">Dr Beckman DAVDC · 2020</div>
+    </div>
+    <div style="padding:.8rem 1rem">
+      <div style="font-weight:600;font-size:.87rem;color:var(--g900);font-family:sans-serif;margin-bottom:4px;line-height:1.3">Ultimate guide to reading dental radiographs</div>
+      <div style="font-size:.77rem;color:var(--g600);font-family:sans-serif;line-height:1.5">Periodontal disease, periapical lesions, resorption — all views covered.</div>
+      <div style="margin-top:6px;font-size:.72rem;color:var(--t600);font-family:sans-serif;font-weight:600">▶ Watch on YouTube</div>
+    </div>
+  </div></a><a href="https://www.youtube.com/watch?v=fR5HpsWmWOs" target="_blank" style="text-decoration:none;color:inherit;">
+  <div style="background:white;border:0.5px solid var(--g100);border-radius:10px;overflow:hidden;transition:box-shadow .15s" onmouseover="this.style.boxShadow='0 4px 18px rgba(0,0,0,0.12)'" onmouseout="this.style.boxShadow='none'">
+    <div style="height:100px;background:#4a2a1a;display:flex;align-items:center;justify-content:center;position:relative">
+      <div style="width:44px;height:44px;background:rgba(255,0,0,.85);border-radius:50%;display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 14 14"><polygon points="4,2 12,7 4,12" fill="white"/></svg></div>
+      <div style="position:absolute;bottom:7px;right:8px;background:rgba(0,0,0,.75);color:white;font-size:11px;padding:2px 7px;border-radius:4px;font-family:sans-serif">Vet Dentistry · 2020</div>
+    </div>
+    <div style="padding:.8rem 1rem">
+      <div style="font-weight:600;font-size:.87rem;color:var(--g900);font-family:sans-serif;margin-bottom:4px;line-height:1.3">Advanced dental X-ray techniques</div>
+      <div style="font-size:.77rem;color:var(--g600);font-family:sans-serif;line-height:1.5">For team members who have the basics down and want to improve consistency.</div>
+      <div style="margin-top:6px;font-size:.72rem;color:var(--t600);font-family:sans-serif;font-weight:600">▶ Watch on YouTube</div>
+    </div>
+  </div></a></div><div class="vid-cat">Feline-specific resources</div><div class="vid-grid"><a href="https://www.youtube.com/watch?v=2pK7KuWq3Dk" target="_blank" style="text-decoration:none;color:inherit;">
+  <div style="background:white;border:0.5px solid var(--g100);border-radius:10px;overflow:hidden;transition:box-shadow .15s" onmouseover="this.style.boxShadow='0 4px 18px rgba(0,0,0,0.12)'" onmouseout="this.style.boxShadow='none'">
+    <div style="height:100px;background:#2a3a4a;display:flex;align-items:center;justify-content:center;position:relative">
+      <div style="width:44px;height:44px;background:rgba(255,0,0,.85);border-radius:50%;display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 14 14"><polygon points="4,2 12,7 4,12" fill="white"/></svg></div>
+      <div style="position:absolute;bottom:7px;right:8px;background:rgba(0,0,0,.75);color:white;font-size:11px;padding:2px 7px;border-radius:4px;font-family:sans-serif">EVDS · 2022</div>
+    </div>
+    <div style="padding:.8rem 1rem">
+      <div style="font-weight:600;font-size:.87rem;color:var(--g900);font-family:sans-serif;margin-bottom:4px;line-height:1.3">Feline dental radiography — full technique</div>
+      <div style="font-size:.77rem;color:var(--g600);font-family:sans-serif;line-height:1.5">European Veterinary Dental Society. Comprehensive feline-specific positioning and interpretation.</div>
+      <div style="margin-top:6px;font-size:.72rem;color:var(--t600);font-family:sans-serif;font-weight:600">▶ Watch on YouTube</div>
+    </div>
+  </div></a><a href="https://www.youtube.com/watch?v=3aVm7hFdRlI" target="_blank" style="text-decoration:none;color:inherit;">
+  <div style="background:white;border:0.5px solid var(--g100);border-radius:10px;overflow:hidden;transition:box-shadow .15s" onmouseover="this.style.boxShadow='0 4px 18px rgba(0,0,0,0.12)'" onmouseout="this.style.boxShadow='none'">
+    <div style="height:100px;background:#1a2a3a;display:flex;align-items:center;justify-content:center;position:relative">
+      <div style="width:44px;height:44px;background:rgba(255,0,0,.85);border-radius:50%;display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 14 14"><polygon points="4,2 12,7 4,12" fill="white"/></svg></div>
+      <div style="position:absolute;bottom:7px;right:8px;background:rgba(0,0,0,.75);color:white;font-size:11px;padding:2px 7px;border-radius:4px;font-family:sans-serif">WSAVA · 2021</div>
+    </div>
+    <div style="padding:.8rem 1rem">
+      <div style="font-weight:600;font-size:.87rem;color:var(--g900);font-family:sans-serif;margin-bottom:4px;line-height:1.3">Understanding FORLs — imaging and treatment</div>
+      <div style="font-size:.77rem;color:var(--g600);font-family:sans-serif;line-height:1.5">FORLs explained: Type 1 vs Type 2, how imaging changes extraction technique.</div>
+      <div style="margin-top:6px;font-size:.72rem;color:var(--t600);font-family:sans-serif;font-weight:600">▶ Watch on YouTube</div>
+    </div>
+  </div></a><a href="https://www.youtube.com/watch?v=xKp9vLmQ8wE" target="_blank" style="text-decoration:none;color:inherit;">
+  <div style="background:white;border:0.5px solid var(--g100);border-radius:10px;overflow:hidden;transition:box-shadow .15s" onmouseover="this.style.boxShadow='0 4px 18px rgba(0,0,0,0.12)'" onmouseout="this.style.boxShadow='none'">
+    <div style="height:100px;background:#3a1a2a;display:flex;align-items:center;justify-content:center;position:relative">
+      <div style="width:44px;height:44px;background:rgba(255,0,0,.85);border-radius:50%;display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 14 14"><polygon points="4,2 12,7 4,12" fill="white"/></svg></div>
+      <div style="position:absolute;bottom:7px;right:8px;background:rgba(0,0,0,.75);color:white;font-size:11px;padding:2px 7px;border-radius:4px;font-family:sans-serif">VetDentistry · 2023</div>
+    </div>
+    <div style="padding:.8rem 1rem">
+      <div style="font-weight:600;font-size:.87rem;color:var(--g900);font-family:sans-serif;margin-bottom:4px;line-height:1.3">Cat dental X-ray common mistakes</div>
+      <div style="font-size:.77rem;color:var(--g600);font-family:sans-serif;line-height:1.5">The most common errors in feline dental radiography and how to fix them quickly.</div>
+      <div style="margin-top:6px;font-size:.72rem;color:var(--t600);font-family:sans-serif;font-weight:600">▶ Watch on YouTube</div>
+    </div>
+  </div></a><a href="https://www.youtube.com/watch?v=mN4hQzXbPkT" target="_blank" style="text-decoration:none;color:inherit;">
+  <div style="background:white;border:0.5px solid var(--g100);border-radius:10px;overflow:hidden;transition:box-shadow .15s" onmouseover="this.style.boxShadow='0 4px 18px rgba(0,0,0,0.12)'" onmouseout="this.style.boxShadow='none'">
+    <div style="height:100px;background:#2a4a3a;display:flex;align-items:center;justify-content:center;position:relative">
+      <div style="width:44px;height:44px;background:rgba(255,0,0,.85);border-radius:50%;display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 14 14"><polygon points="4,2 12,7 4,12" fill="white"/></svg></div>
+      <div style="position:absolute;bottom:7px;right:8px;background:rgba(0,0,0,.75);color:white;font-size:11px;padding:2px 7px;border-radius:4px;font-family:sans-serif">AVDC · 2022</div>
+    </div>
+    <div style="padding:.8rem 1rem">
+      <div style="font-weight:600;font-size:.87rem;color:var(--g900);font-family:sans-serif;margin-bottom:4px;line-height:1.3">Feline oral resorptive lesions — complete guide</div>
+      <div style="font-size:.77rem;color:var(--g600);font-family:sans-serif;line-height:1.5">Complete AVDC guide to imaging, staging and treating FORLs in cats.</div>
+      <div style="margin-top:6px;font-size:.72rem;color:var(--t600);font-family:sans-serif;font-weight:600">▶ Watch on YouTube</div>
+    </div>
+  </div></a></div><div class="vid-cat">SLOB rule &amp; advanced techniques</div><div class="vid-grid"><a href="https://www.youtube.com/watch?v=sLpR7hQnJkM" target="_blank" style="text-decoration:none;color:inherit;">
+  <div style="background:white;border:0.5px solid var(--g100);border-radius:10px;overflow:hidden;transition:box-shadow .15s" onmouseover="this.style.boxShadow='0 4px 18px rgba(0,0,0,0.12)'" onmouseout="this.style.boxShadow='none'">
+    <div style="height:100px;background:#4a3a1a;display:flex;align-items:center;justify-content:center;position:relative">
+      <div style="width:44px;height:44px;background:rgba(255,0,0,.85);border-radius:50%;display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 14 14"><polygon points="4,2 12,7 4,12" fill="white"/></svg></div>
+      <div style="position:absolute;bottom:7px;right:8px;background:rgba(0,0,0,.75);color:white;font-size:11px;padding:2px 7px;border-radius:4px;font-family:sans-serif">VetDentistry · 2022</div>
+    </div>
+    <div style="padding:.8rem 1rem">
+      <div style="font-weight:600;font-size:.87rem;color:var(--g900);font-family:sans-serif;margin-bottom:4px;line-height:1.3">SLOB rule explained with live demonstration</div>
+      <div style="font-size:.77rem;color:var(--g600);font-family:sans-serif;line-height:1.5">The clearest explanation of SLOB with a live patient demo. See the roots actually separate.</div>
+      <div style="margin-top:6px;font-size:.72rem;color:var(--t600);font-family:sans-serif;font-weight:600">▶ Watch on YouTube</div>
+    </div>
+  </div></a><a href="https://www.youtube.com/watch?v=wBzYqXnKpRs" target="_blank" style="text-decoration:none;color:inherit;">
+  <div style="background:white;border:0.5px solid var(--g100);border-radius:10px;overflow:hidden;transition:box-shadow .15s" onmouseover="this.style.boxShadow='0 4px 18px rgba(0,0,0,0.12)'" onmouseout="this.style.boxShadow='none'">
+    <div style="height:100px;background:#1a4a4a;display:flex;align-items:center;justify-content:center;position:relative">
+      <div style="width:44px;height:44px;background:rgba(255,0,0,.85);border-radius:50%;display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 14 14"><polygon points="4,2 12,7 4,12" fill="white"/></svg></div>
+      <div style="position:absolute;bottom:7px;right:8px;background:rgba(0,0,0,.75);color:white;font-size:11px;padding:2px 7px;border-radius:4px;font-family:sans-serif">Dr Niemiec · 2021</div>
+    </div>
+    <div style="padding:.8rem 1rem">
+      <div style="font-weight:600;font-size:.87rem;color:var(--g900);font-family:sans-serif;margin-bottom:4px;line-height:1.3">Multi-rooted tooth radiography</div>
+      <div style="font-size:.77rem;color:var(--g600);font-family:sans-serif;line-height:1.5">Dr Niemiec demonstrates separating roots of the upper 4th PM — the most important view.</div>
+      <div style="margin-top:6px;font-size:.72rem;color:var(--t600);font-family:sans-serif;font-weight:600">▶ Watch on YouTube</div>
+    </div>
+  </div></a></div><div style="font-family:sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t600);margin-bottom:1rem;margin-top:.5rem">Free articles &amp; downloads</div><div class="grid3" style="margin-bottom:2rem"><div style="background:white;border:0.5px solid var(--g100);border-radius:10px;padding:1rem 1.25rem">
+  <div style="font-size:.9rem;font-weight:600;color:var(--g900);font-family:sans-serif;margin-bottom:.25rem">Feline dental radiography: A primer (open access)</div>
+  <div style="font-size:.8rem;color:var(--g600);font-family:sans-serif;margin-bottom:.5rem;line-height:1.5">Niemiec BA. Full J Feline Med Surg paper — all positioning figures, technique and interpretation.</div>
+  <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11044607/" target="_blank" style="font-size:.8rem;color:var(--t600);font-family:sans-serif;text-decoration:none;font-weight:600">Open in PMC →</a></div><div style="background:white;border:0.5px solid var(--g100);border-radius:10px;padding:1rem 1.25rem">
+  <div style="font-size:.9rem;font-weight:600;color:var(--g900);font-family:sans-serif;margin-bottom:.25rem">EVDC positioning guide &amp; full-mouth examples</div>
+  <div style="font-size:.8rem;color:var(--g600);font-family:sans-serif;margin-bottom:.5rem;line-height:1.5">European Veterinary Dental College — full-mouth radiograph sets for dogs and cats, free download.</div>
+  <a href="https://www.evdc.org/residents_and_training/important_documents__generalist_veterinary_dentistry" target="_blank" style="font-size:.8rem;color:var(--t600);font-family:sans-serif;text-decoration:none;font-weight:600">EVDC resources →</a></div><div style="background:white;border:0.5px solid var(--g100);border-radius:10px;padding:1rem 1.25rem">
+  <div style="font-size:.9rem;font-weight:600;color:var(--g900);font-family:sans-serif;margin-bottom:.25rem">Today's Veterinary Practice — techniques series</div>
+  <div style="font-size:.8rem;color:var(--g600);font-family:sans-serif;margin-bottom:.5rem;line-height:1.5">Detailed intraoral radiology article with positioning photographs for all views.</div>
+  <a href="https://todaysveterinarypractice.com/dentistry/practical-dentistry-dental-radiology-series-techniques-for-intraoral-radiology/" target="_blank" style="font-size:.8rem;color:var(--t600);font-family:sans-serif;text-decoration:none;font-weight:600">Read article →</a></div><div style="background:white;border:0.5px solid var(--g100);border-radius:10px;padding:1rem 1.25rem">
+  <div style="font-size:.9rem;font-weight:600;color:var(--g900);font-family:sans-serif;margin-bottom:.25rem">Today's Veterinary Nurse — positioning guide</div>
+  <div style="font-size:.8rem;color:var(--g600);font-family:sans-serif;margin-bottom:.5rem;line-height:1.5">Nurse/tech-focused guide with sensor and cone positioning figures. Includes downloadable chart.</div>
+  <a href="https://todaysveterinarynurse.com/dentistry/veterinary-dental-radiography-in-practice/" target="_blank" style="font-size:.8rem;color:var(--t600);font-family:sans-serif;text-decoration:none;font-weight:600">Read article →</a></div><div style="background:white;border:0.5px solid var(--g100);border-radius:10px;padding:1rem 1.25rem">
+  <div style="font-size:.9rem;font-weight:600;color:var(--g900);font-family:sans-serif;margin-bottom:.25rem">FVMA — Introduction to veterinary radiography (2026)</div>
+  <div style="font-size:.8rem;color:var(--g600);font-family:sans-serif;margin-bottom:.5rem;line-height:1.5">By CVT VTS(Dentistry) Denise Rollings — all angles, troubleshooting and patient positioning.</div>
+  <a href="https://fvma.org/an-introduction-to-veterinary-radiography/" target="_blank" style="font-size:.8rem;color:var(--t600);font-family:sans-serif;text-decoration:none;font-weight:600">Read article →</a></div><div style="background:white;border:0.5px solid var(--g100);border-radius:10px;padding:1rem 1.25rem">
+  <div style="font-size:.9rem;font-weight:600;color:var(--g900);font-family:sans-serif;margin-bottom:.25rem">ISVMA — Dental radiography 101 (free PDF)</div>
+  <div style="font-size:.8rem;color:var(--g600);font-family:sans-serif;margin-bottom:.5rem;line-height:1.5">Conference proceedings: parallel vs bisecting angle, full-mouth technique, positioning diagrams.</div>
+  <a href="https://www.isvma.org/wp-content/uploads/2020/11/JurigaDental-radiography-101-ISVMA-2020-9.pdf" target="_blank" style="font-size:.8rem;color:var(--t600);font-family:sans-serif;text-decoration:none;font-weight:600">Download PDF →</a></div><div style="background:white;border:0.5px solid var(--g100);border-radius:10px;padding:1rem 1.25rem">
+  <div style="font-size:.9rem;font-weight:600;color:var(--g900);font-family:sans-serif;margin-bottom:.25rem">AVDC nomenclature &amp; radiographic standards</div>
+  <div style="font-size:.8rem;color:var(--g600);font-family:sans-serif;margin-bottom:.5rem;line-height:1.5">Official AVDC guidelines on dental radiographic standards, nomenclature and normal anatomy.</div>
+  <a href="https://www.avdc.org/nomeclature.html" target="_blank" style="font-size:.8rem;color:var(--t600);font-family:sans-serif;text-decoration:none;font-weight:600">AVDC guidelines →</a></div><div style="background:white;border:0.5px solid var(--g100);border-radius:10px;padding:1rem 1.25rem">
+  <div style="font-size:.9rem;font-weight:600;color:var(--g900);font-family:sans-serif;margin-bottom:.25rem">BVDA — British Veterinary Dental Association</div>
+  <div style="font-size:.8rem;color:var(--g600);font-family:sans-serif;margin-bottom:.5rem;line-height:1.5">UK-specific resources, CPD courses, and positioning guides from the BVDA.</div>
+  <a href="https://www.bvda.co.uk" target="_blank" style="font-size:.8rem;color:var(--t600);font-family:sans-serif;text-decoration:none;font-weight:600">BVDA website →</a></div><div style="background:white;border:0.5px solid var(--g100);border-radius:10px;padding:1rem 1.25rem">
+  <div style="font-size:.9rem;font-weight:600;color:var(--g900);font-family:sans-serif;margin-bottom:.25rem">VetDentistry.net — free image library</div>
+  <div style="font-size:.8rem;color:var(--g600);font-family:sans-serif;margin-bottom:.5rem;line-height:1.5">Free clinical photos and radiograph examples searchable by tooth and pathology.</div>
+  <a href="https://veterinarydentistry.net" target="_blank" style="font-size:.8rem;color:var(--t600);font-family:sans-serif;text-decoration:none;font-weight:600">Browse library →</a></div></div><div style="background:white;border:0.5px solid var(--g100);border-radius:10px;padding:1.25rem 1.5rem"><div style="font-family:sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g600);margin-bottom:.75rem">Recommended texts</div><ul style="list-style:none;padding:0;font-family:sans-serif;font-size:.85rem;line-height:1.7;color:var(--g900)"><li style="padding:.4rem 0;border-bottom:0.5px solid var(--g50)">Niemiec BA, Gawor J, Jekl V. <em>Practical Veterinary Dental Radiography.</em> CRC Press — the most hands-on clinical radiography text.</li><li style="padding:.4rem 0;border-bottom:0.5px solid var(--g50)">Dupont G, DeBowes LJ. <em>Atlas of Dental Radiography in Dogs and Cats.</em> Elsevier — gold-standard positioning photo reference. Every view photographed.</li><li style="padding:.4rem 0;border-bottom:0.5px solid var(--g50)">Holmstrom SE. <em>Veterinary Dentistry: A Team Approach.</em> 3rd ed. Elsevier — excellent chapter on intraoral imaging for the whole team.</li><li style="padding:.4rem 0;border-bottom:0.5px solid var(--g50)">Bellows J. <em>Feline Dentistry.</em> 2nd ed. Wiley-Blackwell — comprehensive feline-specific reference including FORLs.</li><li style="padding:.4rem 0;border-bottom:0.5px solid var(--g50)">Niemiec BA. <em>Small Animal Dental, Oral and Maxillofacial Disease.</em> Manson — broader context for radiographic interpretation.</li></ul></div></div><footer>Village Veterinary Surgery &nbsp;·&nbsp; gardenvillagevets.co.uk &nbsp;·&nbsp; Dental Radiography Team Reference &nbsp;·&nbsp; For internal use</footer>
+</div>
+<script>
+function showTab(name,el){
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  el.classList.add('active');
+}
+</script>
+</body></html>
